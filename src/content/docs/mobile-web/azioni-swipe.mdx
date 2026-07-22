@@ -1,0 +1,45 @@
+---
+title: "Le azioni in swipe"
+sidebar:
+  label: "Azioni in swipe"
+  order: 6
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Swipe sulla riga" to="Kebab visibile + tasto destro" />
+
+## Regola
+
+Le azioni nascoste dietro lo swipe di una riga (archivia, elimina, modifica) sul web diventano azioni visibili. Il minimo garantito è un **kebab "…" sempre presente** sulla riga e/o un **menu col tasto destro**. L'hover può rivelare scorciatoie in più, ma non è mai l'unico accesso.
+
+## Perché
+
+Lo swipe è un gesto che sul web non esiste: col mouse non si trascina una riga per scoprire azioni. Se le azioni finiscono solo nell'hover, chi non passa sopra la riga non le trova, e sui dispositivi touch l'hover non c'è affatto. Un kebab sempre visibile garantisce che le azioni siano scopribili da chiunque, con qualsiasi input.
+
+## Ma io pensavo che mostrare le azioni solo in hover tenesse la lista pulita
+
+Pulita e inutilizzabile per chi non scopre l'hover. La pulizia si ottiene con un kebab discreto ma sempre presente, non nascondendo del tutto le azioni.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Riga con kebab "…" sempre visibile; in hover compaiono anche le icone rapide.
+- Tasto destro sulla riga che apre lo stesso set di azioni.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Azioni che appaiono solo in hover, senza alcun accesso alternativo.
+- Nessuna traccia delle azioni finché non passi il mouse sulla riga.
+
+:::tip[In una riga]
+Lo swipe diventa un kebab sempre visibile. L'hover aggiunge, non è mai l'unica strada.
+:::

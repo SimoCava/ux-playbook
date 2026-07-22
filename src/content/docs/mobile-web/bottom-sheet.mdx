@@ -1,0 +1,51 @@
+---
+title: "Il bottom sheet sul web"
+sidebar:
+  label: "Bottom sheet"
+  order: 1
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Bottom sheet dal basso" to="Drawer, dialog o popover" />
+
+## Regola
+
+Sul web un bottom sheet non resta un pannello che sale dal basso. Diventa una di tre cose, in base al rapporto col contenuto sotto:
+
+- **Drawer laterale** se il contenuto è legato a ciò che sta sotto e l'utente vuole vederlo o confrontarlo (filtri, dettaglio di una riga, proprietà).
+- **Dialog centrato** (largh. 480-640px) se è un'azione atomica da completare o annullare prima di tornare (conferma, quick edit, mini-form).
+- **Popover ancorato** se erano azioni rapide legate a un trigger preciso (condividi, "…").
+
+## Perché
+
+Il bottom sheet su mobile risolve due vincoli fisici: lo spazio verticale e il pollice che arriva comodo in basso. Sul web nessuno dei due esiste. Quindi la domanda non è più "come faccio scendere il pannello", ma "all'utente serve vedere il contesto sotto mentre lavora?". Se sì, il contenuto galleggia a lato; se no, si centra e blocca. Trascinare il pattern mobile pari pari significa portarsi dietro un vincolo che sul web non c'è più.
+
+## Ma io pensavo di tenerlo dal basso anche su web, per coerenza col mobile
+
+La coerenza sta nel comportamento (stessa azione, stesso contenuto), non nel contenitore. Un pannello a tutta larghezza che sale dal basso su un monitor da 1440px produce righe illeggibili, due fasce morte ai lati e spreca l'unica risorsa che il desktop regala: la larghezza orizzontale.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Filtri. Mobile: sheet dal basso. Web: drawer laterale, con la lista che resta visibile.
+- Quick edit di una riga. Mobile: sheet. Web: dialog da 480px centrato.
+- Condividi / opzioni. Mobile: sheet. Web: popover ancorato al bottone.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Sheet a tutta larghezza che sale dal basso su desktop.
+- Drawer per una conferma secca (troppo pesante per un sì/no).
+- Dialog bloccante per filtri che vorresti applicare guardando la lista.
+
+:::tip[In una riga]
+Sheet dal basso su mobile: a lato se serve il contesto, al centro se no, ancorato se era un menu. Mai dal basso su web.
+:::

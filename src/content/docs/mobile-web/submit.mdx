@@ -1,0 +1,47 @@
+---
+title: "Il pulsante di submit"
+sidebar:
+  label: "Submit"
+  order: 12
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Submit sticky in basso" to="In linea o footer del contenitore" />
+
+## Regola
+
+Il bottone di submit fissato in basso (sticky) su mobile, sul web diventa:
+
+- **In linea** in fondo al form, se il form entra in una schermata.
+- **Footer sticky del contenitore** (modale o drawer) se il form scrolla, così l'azione resta sempre raggiungibile senza incollarsi alla viewport.
+
+## Perché
+
+Su mobile lo sticky serve perché il pollice e lo scroll lungo lo richiedono. Sul web, se il form sta a schermo, l'azione in linea basta; se scrolla, si àncora al fondo del contenitore, non del monitor. Un bottone incollato al fondo della finestra su desktop copre contenuto e appare fuori contesto.
+
+## Ma io pensavo di tenerlo sticky sulla viewport anche sul web
+
+Un bottone incollato al fondo dello schermo su desktop, a tutta larghezza, sembra una barra di sistema e ruba spazio. Si àncora al form o al suo contenitore, non alla finestra del browser.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Form breve. "Salva" in linea a fine form.
+- Form lungo in un drawer. Footer sticky del drawer con le azioni.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Barra di submit incollata al fondo della viewport desktop, a tutta larghezza.
+
+:::tip[In una riga]
+Sul web il submit sta in fondo al form o al contenitore, non incollato al monitor.
+:::

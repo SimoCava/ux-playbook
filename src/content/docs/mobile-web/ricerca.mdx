@@ -1,0 +1,64 @@
+---
+title: "La ricerca"
+sidebar:
+  label: "Ricerca"
+  order: 14
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Ricerca a schermo intero" to="Inline, palette o pagina" />
+
+## Regola
+
+La ricerca a schermo intero del mobile, sul web diventa una di tre cose:
+
+- **Barra inline** nell'header, per cercare dentro contenuti o liste.
+- **Command palette** (Cmd/Ctrl + K), nei prodotti densi dove si cerca e si agisce insieme (navigare, lanciare comandi).
+- **Pagina di ricerca dedicata**, quando cercare è il compito centrale, con filtri ricchi e risultati sfaccettati.
+
+## Perché
+
+Su mobile la ricerca prende tutto lo schermo perché non c'è spazio per tenerla insieme al resto. Sul web c'è: il posto della ricerca dipende da quanto è centrale nel flusso. Accessoria: barra inline. Da power-user che cerca e comanda: palette. È l'attività principale: pagina con filtri.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    barra inline, o nessuna ricerca se il sito è piccolo. Al massimo una pagina risultati con filtri per cataloghi ed e-commerce.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    la command palette con Cmd/Ctrl + K è quasi uno standard: cercare qualsiasi cosa e lanciare azioni da tastiera è ciò che vuole un utente esperto che passa ore nel prodotto.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che una barra inline andasse bene per tutto
+
+Va bene finché cercare è secondario. Se l'utente cerca-e-comanda serve la palette; se cercare è l'attività, serve una pagina con filtri.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Lista con barra di ricerca inline nell'header.
+- Webapp con Cmd/Ctrl + K per cercare e lanciare azioni.
+- E-commerce: pagina risultati con filtri a lato.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Ricerca centrale del prodotto nascosta in una minuscola barra inline.
+
+:::tip[In una riga]
+Inline se è accessoria, palette (Cmd/Ctrl + K) se cerchi e comandi, pagina se cercare è il lavoro.
+:::

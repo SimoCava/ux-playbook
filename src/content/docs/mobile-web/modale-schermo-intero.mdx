@@ -1,0 +1,44 @@
+---
+title: "La modale a schermo intero"
+sidebar:
+  label: "Modale a schermo intero"
+  order: 3
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Modale a tutto schermo" to="Solo se immersiva, se no pagina" />
+
+## Regola
+
+La modale a schermo intero, normale su mobile, sul web è ammessa solo per esperienze immersive e temporanee: visualizzatore di media, editor in modalità focus, wizard di creazione complesso. Se serve un URL, un back o è consultabile in futuro, non è una modale: è una pagina.
+
+## Perché
+
+Su mobile il full-screen è la norma perché lo schermo è piccolo e una cosa alla volta è già tutto. Sul web occupa tutto come una pagina ma senza i suoi vantaggi: niente indirizzo, niente cronologia, niente condivisione del link. Va usato solo quando l'immersione è il punto e l'uscita riporta esattamente dov'eri.
+
+## Ma io pensavo che full-screen fosse solo più spazio per la mia modale
+
+Se ti serve più spazio in modo permanente e navigabile, ti serve una pagina. Il full-screen modal è per il momento, non per il luogo.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Visualizzatore immagine o video a tutto schermo (lightbox).
+- Editor in "modalità focus" che si apre e si richiude sul punto esatto.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Pagina di dettaglio travestita da modale full-screen, senza URL e senza back.
+
+:::tip[In una riga]
+Full-screen è un momento immersivo, non una pagina senza indirizzo.
+:::

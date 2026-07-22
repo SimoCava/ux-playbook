@@ -1,0 +1,42 @@
+---
+title: "Sito vetrina vs webapp"
+description: "La lente che attraversa tutta la guida: lo stesso elemento cambia risposta a seconda del tipo di prodotto."
+sidebar:
+  label: "Sito vetrina vs webapp"
+  order: 1
+---
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+Molte regole non hanno una sola risposta: dipende dal tipo di prodotto. È la lente più importante della guida, quindi la spieghiamo una volta qui e poi la richiamiamo dove serve.
+
+## Le due famiglie
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Marketing / contenuti" variant="tip" />
+
+    L'obiettivo è leggere, scoprire, convertire. L'utente arriva spesso da una ricerca, resta poco, va e torna via link. Contano SEO, velocità, chiarezza. Navigazione ampia e orizzontale, contenuto lineare.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Strumento di lavoro" variant="note" />
+
+    L'obiettivo è lavorare: creare, filtrare, modificare, confrontare. L'utente è ricorrente, spesso esperto, e passa ore sulla stessa interfaccia. Contano densità, scorciatoie, controllo, ritrovabilità. Navigazione profonda e verticale, contenuto in tabelle e viste.
+  </Card>
+</CardGrid>
+
+## Perché cambia la risposta
+
+Lo stesso elemento serve bisogni diversi nelle due famiglie, quindi si comporta diversamente:
+
+- La navigazione primaria diventa una top-nav orizzontale su un sito vetrina, una sidebar verticale in una webapp.
+- La ricerca è una barra semplice (o assente) su un sito, ma diventa uno strumento centrale con scorciatoia da tastiera in una webapp.
+- Tra scroll infinito e paginazione, il sito di contenuti tende allo scroll, la webapp con tabelle alla paginazione.
+- La densità: un sito respira, una webapp comprime per far stare più informazione a schermo.
+
+## Come usarla nella guida
+
+Dove una regola si biforca, trovi un blocco **Sito vetrina vs webapp** con le due risposte. Dove non compare, la regola vale uguale per entrambi. Il tablet e i casi ibridi sono trattati nei Fondamentali.
+
+:::tip[In una riga]
+Un sito vetrina fa leggere e convertire; una webapp fa lavorare. Quando una regola si biforca, chiediti prima di tutto in quale delle due sei.
+:::

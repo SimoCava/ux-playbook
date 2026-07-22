@@ -1,0 +1,50 @@
+---
+title: "Skeleton, spinner o loader"
+sidebar:
+  label: "Skeleton, spinner o loader"
+  order: 8
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Skeleton", text: "Conosci la forma del contenuto in arrivo" },
+  { label: "Spinner", text: "Attesa breve e localizzata su un elemento" },
+  { label: "Full-page", text: "Solo al primissimo avvio dell'app" },
+]} />
+
+## Regola
+
+Skeleton quando conosci la forma del contenuto in arrivo (liste, card, tabelle, profili). Spinner per attese brevi e circoscritte a un singolo elemento (un bottone, una piccola area). Full-page loader solo al primo caricamento dell'app, mai per le transizioni interne.
+
+## Perché
+
+Lo skeleton comunica cosa sta arrivando e riduce il salto di layout; lo spinner va bene per un'attesa breve e localizzata; il full-page blocca tutto e va limitato al boot. Usarli a caso fa percepire l'app più lenta di quanto sia.
+
+## Ma io pensavo che uno spinner ovunque fosse la scelta neutra
+
+Lo spinner non dice nulla sul contenuto e su aree grandi sembra un blocco. Dove conosci la struttura, lo skeleton è più informativo e più veloce da percepire.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Lista in caricamento: righe skeleton.
+- Bottone "Salva" in attesa: spinner nel bottone.
+- Avvio dell'app: full-page loader una volta sola.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Full-page loader a ogni cambio di sezione interna.
+- Grande spinner centrale al posto di uno skeleton di lista.
+
+:::tip[In una riga]
+Conosci la forma: skeleton. Attesa piccola: spinner. Full-page solo al boot.
+:::

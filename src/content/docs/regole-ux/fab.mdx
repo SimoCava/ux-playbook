@@ -1,0 +1,46 @@
+---
+title: "FAB: quando sì"
+sidebar:
+  label: "FAB"
+  order: 12
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Sì", text: "Mobile: azione primaria raggiungibile col pollice", tone: "ok" },
+  { label: "No", text: "Su web: bottone primario nella toolbar", tone: "bad" },
+]} />
+
+## Regola
+
+Il FAB fluttuante non sopravvive sul web: l'azione primaria diventa un bottone esplicito nella toolbar o nell'header, in posizione stabile e prevedibile. Su mobile il FAB resta valido perché risolve la raggiungibilità col pollice.
+
+## Perché
+
+Il FAB serve il pollice nell'angolo del mobile. Sul web, col mouse ogni punto è raggiungibile, e un bottone fluttuante che copre il contenuto è solo un ostacolo. L'evidenza dell'azione primaria si ottiene con un bottone ben posizionato, non con un cerchio che galleggia.
+
+## Ma io pensavo che il FAB rendesse l'azione primaria più evidente
+
+Su desktop l'evidenza si ottiene con un bottone primario nella toolbar, non con un cerchio sopra le cose.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Mobile: FAB "+" in basso a destra. Web: bottone "Nuovo" nell'header.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- FAB fluttuante su desktop che copre l'angolo del contenuto.
+
+:::tip[In una riga]
+Il FAB è per il pollice. Sul web l'azione primaria va nella toolbar.
+:::

@@ -1,0 +1,55 @@
+---
+title: "Dove mostrare gli errori"
+sidebar:
+  label: "Errori per gravità"
+  order: 4
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Locale", text: "Campo singolo o azione fallita: inline o toast" },
+  { label: "Globale", text: "Blocco o stato rotto: banner o pagina" },
+]} />
+
+## Regola
+
+L'errore si mostra dove nasce, con un peso proporzionale alla gravità.
+
+| Gravità | Dove | Esempio |
+| --- | --- | --- |
+| Campo singolo | Inline, sotto il campo | Email non valida |
+| Azione fallita, recuperabile | Toast | "Salvataggio fallito, riprova" |
+| Blocco che impedisce di procedere | Banner in cima al contesto | "Connessione persa" |
+| Errore critico / stato rotto | Pagina dedicata | 404, 500, accesso negato |
+
+## Perché
+
+Un errore mostrato nel posto sbagliato o è invisibile (un toast per un campo) o è sproporzionato (una modale per un typo). La posizione comunica la gravità prima ancora del testo.
+
+## Ma io pensavo che una modale rendesse l'errore più visibile
+
+La modale blocca tutto anche per un errore banale. Serve visibilità proporzionata: inline per il campo, toast per l'azione, pagina solo quando davvero non si può proseguire.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Validazione campo: messaggio inline sotto il campo.
+- Upload fallito: toast con "Riprova".
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Modale per un errore di validazione di un singolo campo.
+- Toast che sparisce per un errore che blocca l'intero flusso.
+
+:::tip[In una riga]
+L'errore vive dove nasce e pesa quanto pesa il problema.
+:::

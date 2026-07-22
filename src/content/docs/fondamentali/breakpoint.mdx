@@ -1,0 +1,37 @@
+---
+title: "Il breakpoint"
+sidebar:
+  label: "Breakpoint"
+  order: 1
+---
+import { Badge } from '@astrojs/starlight/components';
+
+<Badge text="Riferimento" variant="default" />
+
+## Regola
+
+Confine unico per tutto il prodotto:
+
+| Categoria | Larghezza |
+| --- | --- |
+| Mobile | `< 768px` |
+| Tablet | `768px - 1024px` |
+| Desktop | `>= 1024px` |
+
+Il layout desktop (sidebar, tabelle, azioni in hover) parte da `1024px`.
+
+## Perché
+
+Senza una soglia condivisa ognuno immagina un confine diverso, e le stesse regole finiscono applicate a schermi diversi. Un breakpoint scritto elimina l'ambiguità "ma questo è mobile o desktop?".
+
+:::note
+I canvas di riferimento del design system sono 393px (mobile) e 1920px (desktop). Sono le tele su cui si disegna, non le soglie: il breakpoint è il confine di categoria, non la larghezza di un device specifico.
+:::
+
+## Ma io pensavo che i breakpoint dipendessero dai singoli componenti
+
+Un componente può avere aggiustamenti interni, ma il confine di categoria (quale set di regole applico) è uno solo per tutto il prodotto. Altrimenti non è un dogma, è un'opinione per pixel.
+
+:::tip[In una riga]
+Mobile < 768, tablet 768-1024, desktop >= 1024. Uguale ovunque.
+:::

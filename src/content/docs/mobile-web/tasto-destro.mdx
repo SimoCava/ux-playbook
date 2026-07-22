@@ -1,0 +1,59 @@
+---
+title: "Il menu con il tasto destro"
+sidebar:
+  label: "Tasto destro"
+  order: 9
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Niente tasto destro" to="Menu custom solo se serve" />
+
+## Regola
+
+Sovrascrivi il menu contestuale nativo del browser solo dove un menu custom aggiunge valore reale (editor, tabelle dati, canvas). Su contenuti normali (testo, link, immagini) non toccarlo: romperesti copia, apri-in-nuova-scheda, salva-immagine, che l'utente si aspetta.
+
+## Perché
+
+Il tasto destro è un'affordance nata sul web: su mobile non esiste. Il suo menu nativo è un'aspettativa consolidata. Rubarlo senza offrire di più frustra; offrire azioni contestuali pertinenti in uno strumento è invece un valore aggiunto. Dipende dal contesto, non dall'estetica.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    lascia stare il menu nativo. Non c'è motivo di sostituirlo, e romperlo danneggia solo l'utente.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    il menu custom è utile e atteso su righe, nodi, celle, elementi del canvas, purché offra azioni che il nativo non ha (duplica, esporta, rinomina).
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che un menu custom fosse sempre più professionale
+
+Solo se aggiunge azioni che il nativo non ha. Se lo sostituisci per estetica togliendo le funzioni standard del browser, stai togliendo, non aggiungendo.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Tasto destro su una riga di tabella: azioni pertinenti (duplica, elimina, esporta).
+- Tasto destro su testo normale: menu nativo del browser intatto.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Menu custom su testo e link che blocca copia e apri-in-nuova-scheda.
+
+:::tip[In una riga]
+Sostituisci il menu del browser solo dove aggiungi valore, mai su contenuti normali.
+:::

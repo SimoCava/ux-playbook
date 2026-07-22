@@ -1,0 +1,55 @@
+---
+title: "Overlay: sovrapposizione e chiusura"
+sidebar:
+  label: "Overlay: sovrapposizione e chiusura"
+  order: 7
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Mai impilare", text: "Una modale non ne apre un'altra: cambia il contenuto", tone: "bad" },
+  { label: "Chiusura", text: "Più l'azione pesa, più chiudere costa un gesto intenzionale" },
+]} />
+
+## Regola
+
+Vietato impilare modali: una modale non ne apre mai un'altra. Se serve un secondo passo, si sostituisce il contenuto dentro la stessa cornice, o si promuove a pagina. Per la chiusura, il comportamento dipende dal peso dell'azione.
+
+| Overlay | Backdrop | ESC | X |
+| --- | --- | --- | --- |
+| Popover / dropdown | Chiude | Chiude | - |
+| Drawer / modale informativa | Chiude | Chiude | Presente |
+| Modale con dati non salvati | Non chiude | Chiede conferma | Chiede conferma |
+| Modale distruttiva / bloccante | Non chiude | Non chiude | Presente |
+
+## Perché
+
+Le modali impilate accumulano backdrop, si rubano il focus e rendono ambiguo cosa chiude ESC o il click esterno: l'utente perde il "dove sono". E la chiusura accidentale è la prima causa di lavoro perso: più l'azione è impegnativa o irreversibile, più chiudere deve richiedere intenzione esplicita.
+
+## Ma io pensavo che il click sul backdrop dovesse sempre chiudere
+
+Solo quando la chiusura non ha conseguenze. Con un form compilato o un'azione critica in corso, il backdrop non chiude, o chiede conferma.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Modale con step 1 poi step 2 nella stessa cornice.
+- Form a metà: il backdrop non chiude, compare "scartare le modifiche?".
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Due backdrop sovrapposti, modale su modale.
+- Form lungo che sparisce con un click distratto fuori.
+
+:::tip[In una riga]
+Mai una modale sopra una modale. Più l'azione pesa, più chiudere deve costare intenzione.
+:::

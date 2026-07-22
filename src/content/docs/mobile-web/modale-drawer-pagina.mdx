@@ -1,0 +1,65 @@
+---
+title: "Modale, drawer o pagina"
+sidebar:
+  label: "Modale, drawer o pagina"
+  order: 2
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Sheet o full-screen" to="Drawer, modale o pagina" />
+
+## Regola
+
+Scegli il contenitore con due domande in sequenza:
+
+1. **Serve vedere il contesto sotto mentre si lavora?** Sì: **drawer** laterale (non blocca). No: passa alla seconda.
+2. **È un'azione atomica o un lavoro?** Azione breve e auto-conclusa: **modale** centrata. Lavoro lungo, multi-step, o che scrolla oltre una schermata, o con più di ~7-8 campi, o che deve avere un URL proprio: **pagina**.
+
+## Perché
+
+I tre contenitori non sono intercambiabili per gusto. Il drawer coesiste col contesto, la modale lo sospende, la pagina lo sostituisce. La modale è un'interruzione momentanea: apri, fai una cosa, chiudi. Se richiede concentrazione prolungata, scroll o più passi, l'interruzione diventa una trappola: niente back del browser, niente deep-link, contesto congelato dietro.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    prevalgono modale (conferme, iscrizioni) e pagina (contenuti). Il drawer è raro.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    il drawer è il cavallo di battaglia. Dettaglio di una riga, proprietà di un elemento, anteprima: tutto ciò che va letto senza perdere la tabella sotto vive in un drawer laterale.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che la modale evitasse un cambio di pagina brusco
+
+Il brusco è tenere un form lungo dentro un rettangolo che scrolla. Una pagina dedicata dà spazio, URL, back del browser e respiro. La modale non è più leggera: è più costrittiva.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Conferma eliminazione. Modale (una sola decisione).
+- Dettaglio di una riga in una tabella. Drawer (la tabella resta visibile).
+- Creazione con 12 campi. Pagina dedicata con URL.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Modale con scroll interno e footer di azioni che sfarfalla.
+- Wizard multi-step incastrato in una modale.
+- Drawer per una conferma secca sì/no.
+
+:::tip[In una riga]
+Serve il contesto sotto: drawer. Un'azione: modale. Un lavoro: pagina.
+:::

@@ -1,0 +1,45 @@
+---
+title: "Il toast e la sua posizione"
+sidebar:
+  label: "Toast"
+  order: 13
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Basso al centro" to="In un angolo" />
+
+## Regola
+
+Il toast, che su mobile vive in basso al centro (a portata di pollice), sul web si sposta in un **angolo**: in basso a sinistra o in alto a destra, coerente in tutto il prodotto. Durata 5-7s per un messaggio informativo. Un toast **con azione** (es. "Annulla") non si auto-chiude: resta finché l'utente agisce o lo scarta.
+
+## Perché
+
+In basso al centro su mobile funziona perché è dove guarda il pollice e non copre il contenuto scrollabile. Sul web quello stesso punto copre il centro dell'area di lavoro; l'angolo è meno invadente e più vicino alle convenzioni desktop. E un toast che sparisce mentre l'utente muove il mouse verso "Annulla" è una trappola: se c'è un'azione, il tempo lo decide l'utente.
+
+## Ma io pensavo che tutti i toast dovessero sparire da soli
+
+Solo quelli puramente informativi. Se offri un'azione, togliere il toast prima che l'utente la usi vanifica l'intero pattern.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- "Copiato negli appunti". Mobile: basso-centro. Web: angolo. Sparisce dopo ~5s.
+- "Elemento eliminato - Annulla". Resta finché non si agisce.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Toast con "Annulla" che scompare dopo 3 secondi.
+- Toast centrale che copre il contenuto su desktop.
+
+:::tip[In una riga]
+Dal basso-centro all'angolo. Informativo: sparisce. Con azione: resta.
+:::

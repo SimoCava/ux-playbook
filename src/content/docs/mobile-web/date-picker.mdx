@@ -1,0 +1,45 @@
+---
+title: "Il date picker"
+sidebar:
+  label: "Date picker"
+  order: 11
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Selettore nativo" to="Calendario a griglia" />
+
+## Regola
+
+Su mobile usa il picker nativo del sistema (la ruota / il selettore dell'OS). Sul web usa un **calendario a griglia** al click, con un campo di testo digitabile in parallelo. Per gli intervalli, mostra **due mesi affiancati** con selezione di inizio e fine sulla stessa griglia.
+
+## Perché
+
+Il picker nativo mobile è ottimizzato per il tocco e va rispettato: l'utente lo conosce già. Sul web la griglia è più veloce col mouse e permette il confronto visivo tra date, cosa impossibile su una ruota. Sono due strumenti diversi perché due input diversi, non lo stesso componente ridimensionato.
+
+## Ma io pensavo di riusare lo stesso componente su entrambe le piattaforme
+
+La ruota su desktop è lenta col mouse e rende dolorosi gli intervalli. La griglia su mobile occupa troppo e combatte col tocco. Ogni piattaforma il suo strumento.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Mobile: selettore nativo. Web: griglia calendario + campo digitabile.
+- Intervallo sul web: due mesi affiancati, inizio e fine sulla stessa vista.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Ruota in stile mobile forzata sul desktop.
+- Selezione di un intervallo fatta con due dropdown separati.
+
+:::tip[In una riga]
+Selettore nativo su mobile, griglia (due mesi per gli intervalli) sul web.
+:::

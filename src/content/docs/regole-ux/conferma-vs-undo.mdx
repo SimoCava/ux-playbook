@@ -1,0 +1,48 @@
+---
+title: "Conferma o undo"
+sidebar:
+  label: "Conferma o undo"
+  order: 1
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Undo (default)", text: "Azioni reversibili: esegui subito e offri Annulla", tone: "ok" },
+  { label: "Conferma", text: "Solo se irreversibile e ad alto impatto", tone: "bad" },
+]} />
+
+## Regola
+
+Default: esegui subito e offri undo (un toast con "Annulla", 5-7s). Usa la modale di conferma solo quando l'azione è irreversibile e ad alto impatto (eliminazione definitiva, pagamento, invio irrevocabile).
+
+## Perché
+
+La conferma preventiva è attrito su ogni azione, anche innocua, e la gente impara a cliccare "Conferma" senza leggere: così non protegge più nulla. L'undo sposta l'attrito solo sui rari casi in cui serve davvero, e la sicurezza reale è la reversibilità, non l'ennesimo "sei sicuro?".
+
+## Ma io pensavo che confermare fosse sempre più sicuro
+
+La conferma su tutto è rumore: allena l'utente a ignorarla. La protezione vera è poter annullare.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Archivia un elemento: azione immediata + toast "Annulla".
+- Elimina account in modo definitivo: modale con conferma esplicita.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- "Sei sicuro?" su ogni singola azione reversibile.
+- Eliminazione irreversibile senza nessuna conferma.
+
+:::tip[In una riga]
+Reversibile: fai e offri undo. Irreversibile e grave: conferma prima.
+:::

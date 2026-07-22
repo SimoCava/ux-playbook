@@ -1,0 +1,22 @@
+---
+interface Props {
+  from: string;
+  to: string;
+}
+const { from, to } = Astro.props;
+---
+
+<div class="vh-kv-table" role="group" aria-label="Da mobile a web">
+  <table>
+    <tbody>
+      <tr>
+        <th scope="row">Mobile</th>
+        <td>{from}</td>
+      </tr>
+      <tr>
+        <th scope="row">Web</th>
+        <td>{to}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

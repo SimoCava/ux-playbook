@@ -1,0 +1,45 @@
+---
+title: "Le azioni in hover"
+sidebar:
+  label: "Azioni in hover"
+  order: 8
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Niente hover (touch)" to="Hover solo come extra" />
+
+## Regola
+
+Nessuna azione o informazione essenziale deve dipendere solo dall'hover. Tutto ciò che appare in hover deve avere un accesso alternativo persistente (bottone o kebab visibile, focus da tastiera). Tecnicamente: quello che riveli in hover, mostralo comunque quando l'hover non c'è, con `@media (any-hover: none)`.
+
+## Perché
+
+Il web ha portato l'hover, che su mobile non esisteva, ed è una tentazione: nascondere i controlli finché non ci passi sopra. Ma l'hover non è affidabile. I laptop touchscreen, i 2-in-1 e i tablet con puntatore passano da un input all'altro di continuo, e la regola condivisa è netta: le azioni critiche non devono mai dipendere dal solo `:hover`. Le media query `hover` e `any-hover` esistono apposta per distinguere questi casi; su un dispositivo senza hover i controlli vanno resi sempre visibili, con target di tocco ampi.
+
+## Ma io pensavo che tanto tutti i desktop hanno il mouse
+
+Falso da anni: gli ibridi touch sono diffusi, e anche col mouse l'hover è invisibile finché non ci capiti sopra. Progettare per il solo hover esclude una fetta reale di utenti e ogni navigazione da tastiera.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Icone di azione già visibili di base, semplicemente enfatizzate in hover.
+- Tutto ciò che è in hover è raggiungibile anche via tap e via focus da tastiera.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Controlli che compaiono unicamente al passaggio del mouse.
+- Informazione critica affidata a un tooltip che su touch non appare mai.
+
+:::tip[In una riga]
+L'hover aggiunge, non è mai l'unica strada. Tutto deve funzionare anche senza.
+:::

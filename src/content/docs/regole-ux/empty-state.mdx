@@ -1,0 +1,49 @@
+---
+title: "Empty state"
+sidebar:
+  label: "Empty state"
+  order: 9
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Primo utilizzo", text: "Illustrazione + una CTA per iniziare", tone: "ok" },
+  { label: "Nessun risultato", text: "Testo secco + reset dei filtri" },
+  { label: "Errore", text: "Messaggio + riprova", tone: "bad" },
+]} />
+
+## Regola
+
+Non tutti i vuoti sono uguali. Primo utilizzo (nessun dato ancora): illustrazione + una frase + una CTA chiara per iniziare. Nessun risultato (filtro o ricerca a vuoto): testo secco + azione di reset, niente illustrazione. Errore: messaggio d'errore + retry, non un vuoto "carino".
+
+## Perché
+
+Il primo utilizzo va accolto e guidato; un filtro a vuoto va risolto; un errore va comunicato. Trattarli allo stesso modo confonde la causa del vuoto e lascia l'utente senza la prossima mossa.
+
+## Ma io pensavo che ogni empty state volesse un'illustrazione simpatica
+
+L'illustrazione ci sta all'onboarding, dove inviti ad agire. Su "nessun risultato" è rumore: lì serve dire perché è vuoto e come rimediare.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Lista vuota al primo accesso: illustrazione + "Crea il primo elemento".
+- Ricerca senza risultati: "Nessun risultato per… — Azzera filtri".
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Grande illustrazione allegra su un "nessun risultato" di ricerca.
+- Vuoto muto, senza spiegazione né azione.
+
+:::tip[In una riga]
+Primo utilizzo: invito con CTA. Ricerca vuota: spiega e resetta. Errore: riprova.
+:::

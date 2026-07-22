@@ -1,0 +1,64 @@
+---
+title: "Strutturare le form"
+sidebar:
+  label: "Strutturare le form"
+  order: 6
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Colonna singola", text: "Il default: un solo percorso di lettura, dall'alto in basso" },
+  { label: "Step / wizard", text: "Solo con complessità reale, dipendenze o form molto lunghe" },
+]} />
+
+## Regola
+
+Form a colonna singola come default, sempre. Due campi corti e correlati possono stare sulla stessa riga (Città/CAP, Nome/Cognome, Da/A), ma non spezzare mai un flusso su due colonne parallele. Tieni gli step separati solo se sono logicamente distinti, hanno dipendenze, o il totale supera una schermata densa; se i campi sono pochi e indipendenti, mostra tutto in una schermata.
+
+## Perché
+
+La colonna singola dà un percorso di lettura unico, senza ambiguità sull'ordine. Due colonne parallele fanno zigzagare l'occhio e saltare campi. Gli step riducono il carico su compiti lunghi, ma spezzare un form breve in quattro schermate aggiunge solo click.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    Form corte e lineari: contatti, iscrizione, checkout. Colonna singola, pochi campi, submit chiaro. Lo step si giustifica solo nel checkout, dove le fasi hanno dipendenze reali.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    Form dense e ripetitive, compilate spesso da utenti esperti. Qui contano velocità di inserimento, tabulazione ordinata, sezioni raggruppate e default sensati. La densità è più alta, ma la colonna resta una: si raggruppa in sezioni, non si affianca in colonne parallele.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che su desktop due colonne sfruttassero meglio lo spazio
+
+Sfruttare lo spazio non è l'obiettivo: compilare senza errori lo è. La larghezza extra si usa per margini e respiro, non per raddoppiare le colonne. E spezzare un form breve in tanti step è burocrazia.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Form in colonna singola con Città/CAP affiancati su una riga.
+- Checkout (indirizzo, spedizione, pagamento): step con dipendenze.
+- Gestionale: schermata unica a sezioni raggruppate, non a colonne parallele.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Form diviso in due colonne verticali che rompono l'ordine di compilazione.
+- Form breve spezzato in tanti step con un campo ciascuno.
+
+:::tip[In una riga]
+Un form si legge in colonna. Affianca solo coppie corte, raggruppa in sezioni, spezza in step solo con complessità vera.
+:::

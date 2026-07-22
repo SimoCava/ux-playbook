@@ -1,0 +1,45 @@
+---
+title: "I tooltip senza hover"
+sidebar:
+  label: "Tooltip"
+  order: 10
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Niente hover" to="Tooltip solo per l'accessorio" />
+
+## Regola
+
+Il tooltip può ospitare solo informazione accessoria (l'etichetta di un'icona, una scorciatoia, un chiarimento non essenziale). Qualsiasi informazione necessaria per capire o agire deve stare visibile nell'interfaccia, non nascosta in un tooltip.
+
+## Perché
+
+Il tooltip appare in hover, che sul mobile non esiste e da tastiera è incostante. Se l'informazione è indispensabile e vive solo lì, per una fetta di utenti semplicemente non esiste. Sul web è facile abusarne perché l'hover è a portata di mouse, ma il costo lo pagano touch e tastiera.
+
+## Ma io pensavo che il tooltip fosse un buon posto per le spiegazioni
+
+Per un chiarimento marginale sì. Per un'istruzione necessaria no: va mostrata come testo, label o helper visibile. Il tooltip è un extra opzionale, non un contenitore di verità nascoste.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Icona senza etichetta: tooltip col nome (accessorio).
+- Vincolo obbligatorio di un campo: helper text sempre visibile sotto il campo.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Istruzione essenziale disponibile solo passando il mouse su una "i".
+- Icona da sola con significato affidato al solo tooltip.
+
+:::tip[In una riga]
+Nel tooltip solo l'accessorio. Ciò che serve davvero sta a schermo.
+:::

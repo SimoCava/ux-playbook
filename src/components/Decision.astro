@@ -1,0 +1,24 @@
+---
+interface Item {
+  label: string;
+  text: string;
+  tone?: 'ok' | 'bad' | 'neutral';
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+
+<div class="vh-kv-table">
+  <table>
+    <tbody>
+      {items.map((it) => (
+        <tr>
+          <th scope="row">{it.label}</th>
+          <td>{it.text}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,56 @@
+---
+title: "Dropdown, radio o segmented"
+sidebar:
+  label: "Dropdown, radio o segmented"
+  order: 5
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Segmented", text: "2-4 opzioni, etichette corte" },
+  { label: "Radio", text: "2-7 opzioni, etichette lunghe o con descrizione" },
+  { label: "Dropdown", text: "8+ opzioni, o spazio limitato" },
+]} />
+
+## Regola
+
+Scegli in base al numero di opzioni e alla lunghezza delle etichette.
+
+| Opzioni | Etichette | Componente |
+| --- | --- | --- |
+| 2-4 | corte, esclusive | Segmented control (tutte visibili) |
+| 2-7 | lunghe o con descrizione | Radio buttons |
+| 8+ | qualunque, o spazio limitato | Dropdown / select |
+
+## Perché
+
+Mostrare le opzioni riduce i click e rende la scelta immediata; nasconderle in un dropdown ha senso solo quando sono troppe per stare a vista. La soglia toglie la discussione "select o radio?".
+
+## Ma io pensavo che il dropdown fosse sempre più ordinato
+
+Ordinato ma più lento: ogni scelta costa un'apertura. Con poche opzioni, mostrarle tutte è più rapido e più chiaro.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- 3 opzioni (Giorno / Settimana / Mese): segmented.
+- 5 metodi di spedizione con descrizione: radio.
+- 30 paesi: dropdown con ricerca.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Dropdown per 2 sole opzioni.
+- 20 radio button in un muro verticale.
+
+:::tip[In una riga]
+Poche e corte: segmented. Poche e descritte: radio. Tante: dropdown.
+:::

@@ -1,0 +1,60 @@
+---
+title: "Il pull-to-refresh"
+sidebar:
+  label: "Pull-to-refresh"
+  order: 7
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Pull-to-refresh" to="Auto-refresh + bottone" />
+
+## Regola
+
+Il pull-to-refresh non esiste sul web. Sostituiscilo con **refresh automatico** in background dove ha senso (più un indicatore "aggiornato N min fa") e un **bottone di refresh esplicito** dove l'utente vuole controllare il momento.
+
+## Perché
+
+Trascinare la pagina verso il basso per aggiornare è un gesto touch-only: col mouse non c'è. Sul web l'aggiornamento va reso esplicito con un bottone, o invisibile con l'auto-refresh, non affidato a un gesto che manca. Costringere al reload completo della pagina è peggio: pesante e perde lo stato della vista.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    i contenuti cambiano di rado, spesso basta il caricamento normale della pagina.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    dashboard e liste vive vogliono auto-refresh mirato con timestamp, e un bottone "Aggiorna" per forzare a mano.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che i dati si aggiornassero al reload della pagina
+
+Il reload completo è un martello: perde scroll, filtri e selezioni. Meglio aggiornare solo i dati che servono, in background o su richiesta.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Dashboard. Auto-refresh + "Aggiornato 2 min fa" + bottone "Aggiorna".
+- Inbox. Nuovi elementi caricati da soli con un contatore.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Nessun modo di aggiornare se non ricaricando tutta la pagina.
+- Tentare di replicare il pull-to-refresh col trascinamento del mouse.
+
+:::tip[In una riga]
+Niente pull sul web: auto-refresh dove serve, bottone esplicito dove conta.
+:::

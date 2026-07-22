@@ -1,0 +1,47 @@
+---
+title: "Hamburger: quando sì"
+sidebar:
+  label: "Hamburger"
+  order: 11
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Sì", text: "Mobile; oppure nav secondaria o sidebar collassabile su desktop", tone: "ok" },
+  { label: "No", text: "Mai per la navigazione primaria su desktop", tone: "bad" },
+]} />
+
+## Regola
+
+Su desktop l'hamburger è vietato per la navigazione primaria: quella è sempre visibile (sidebar o top-nav). L'hamburger è ammesso solo per navigazione secondaria o per collassare volontariamente una sidebar in uno strumento. Su mobile resta un compromesso di spazio legittimo.
+
+## Perché
+
+Nascondere la navigazione dietro un click, quando c'è tutto lo spazio per mostrarla, riduce scoperta e uso. Su mobile l'hamburger risolve un vincolo di spazio reale; su desktop lo spazio c'è, quindi il vincolo non c'è.
+
+## Ma io pensavo che l'hamburger tenesse l'interfaccia più pulita
+
+"Pulito" a costo di nascondere le funzioni non è un vantaggio: è attrito. Su desktop la nav primaria si mostra.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Desktop: nav primaria sempre visibile.
+- Sidebar collassabile in una dashboard, con toggle esplicito.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Sito desktop con tutta la navigazione dietro un'icona hamburger.
+
+:::tip[In una riga]
+Su desktop la navigazione primaria si vede. L'hamburger è un ripiego mobile.
+:::

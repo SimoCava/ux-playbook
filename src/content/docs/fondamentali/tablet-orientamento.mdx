@@ -1,0 +1,27 @@
+---
+title: "Tablet e orientamento"
+sidebar:
+  label: "Tablet e orientamento"
+  order: 2
+---
+import { Badge } from '@astrojs/starlight/components';
+
+<Badge text="Riferimento" variant="default" />
+
+## Regola
+
+Il tablet segue le regole **mobile** per default (touch-first: target ampi, nessuna dipendenza dall'hover), ma adotta i **pattern di layout desktop** quando la larghezza lo consente (`>= 1024px`, tipicamente in landscape: sidebar, colonne multiple, master-detail).
+
+L'orientamento non cambia la categoria: la **larghezza** sì. Si decide sui pixel reali, non sul fatto che lo schermo sia ruotato.
+
+## Perché
+
+Il tablet è touch come il mobile ma largo come il desktop. Trattarlo come "mobile ingigantito" spreca lo spazio; trattarlo come "desktop col dito" rende i target impossibili da toccare. Serve il touch del mobile con il layout del desktop. E "landscape" da solo non dice quanto spazio c'è: un telefono in landscape resta stretto. Conta la larghezza risultante, che è misurabile e non ambigua.
+
+## Ma io pensavo che landscape significasse automaticamente layout desktop
+
+Non basta ruotare. È la larghezza che supera o meno la soglia a decidere, non la rotazione: un telefono a 850px in landscape resta a colonna singola, un tablet a 1180px passa a sidebar e doppia colonna.
+
+:::tip[In una riga]
+Tablet: input del mobile, layout del desktop. Decide la larghezza in pixel, non l'orientamento.
+:::

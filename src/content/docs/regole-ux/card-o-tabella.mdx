@@ -1,0 +1,63 @@
+---
+title: "Card o tabella"
+sidebar:
+  label: "Card o tabella"
+  order: 13
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Tabella", text: "Dati confrontabili e strutturati, da ordinare e scansionare" },
+  { label: "Card", text: "Contenuti ricchi, visuali ed eterogenei" },
+]} />
+
+## Regola
+
+Usa una tabella quando i dati sono comparabili e strutturati (stessi attributi per riga, da ordinare, filtrare, scansionare in colonna). Usa le card quando ogni elemento è ricco e visuale (immagine dominante, contenuto eterogeneo, consumo esplorativo).
+
+## Perché
+
+La tabella è imbattibile per confrontare valori sulla stessa colonna; la card è migliore per contenuti visuali ed eterogenei. La scelta dipende dalla natura del dato, non dalla moda: "moderno" non è un criterio.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    Prevalgono le card: prodotti con foto, articoli, cataloghi da sfogliare. Il contenuto è visuale e la scansione è esplorativa.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    Prevale la tabella: righe di dati da ordinare, filtrare, confrontare e modificare in blocco. La densità è alta e le azioni stanno in hover o nel kebab di riga.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che le card fossero sempre più moderne
+
+Per 200 righe di dati confrontabili, una griglia di card costringe a scorrere all'infinito senza poter allineare i valori. Lì serve una tabella.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Ordini o transazioni: tabella ordinabile.
+- Prodotti con foto: card.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- 300 record tabellari resi come griglia infinita di card.
+- Contenuto ricco e visuale compresso in righe di tabella spoglie.
+
+:::tip[In una riga]
+Dati confrontabili: tabella. Contenuti visuali ed eterogenei: card.
+:::

@@ -1,0 +1,47 @@
+---
+title: "Azioni distruttive reversibili"
+sidebar:
+  label: "Distruttiva reversibile"
+  order: 2
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Reversibile", text: "Cestino, archivio, soft-delete: fai e offri undo", tone: "ok" },
+  { label: "Irreversibile", text: "Definitivo: modale di conferma", tone: "bad" },
+]} />
+
+## Regola
+
+Se l'azione distruttiva è reversibile (cestino, archivio, soft-delete), niente modale: esegui e mostra undo. La modale è riservata al distruttivo irreversibile.
+
+## Perché
+
+Reversibilità e conferma servono allo stesso scopo: prevenire il danno. Averle entrambe è ridondante e rallenta. Ne basta una, e l'undo è meno invasivo.
+
+## Ma io pensavo che "elimina" meritasse sempre una conferma
+
+Solo se è definitivo. Se finisce nel cestino e si recupera, l'undo è sufficiente e più veloce.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Sposta nel cestino: toast "Annulla".
+- Svuota il cestino (irreversibile): modale di conferma.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Modale di conferma per un'azione che ha già un undo.
+
+:::tip[In una riga]
+Se si può annullare, non chiedere il permesso: offri l'Annulla.
+:::

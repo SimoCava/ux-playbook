@@ -1,0 +1,25 @@
+---
+title: "La larghezza di lettura"
+sidebar:
+  label: "Larghezza di lettura"
+  order: 3
+---
+import { Badge } from '@astrojs/starlight/components';
+
+<Badge text="Riferimento" variant="default" />
+
+## Regola
+
+Il contenuto testuale non supera mai `640-720px` di larghezza di riga, anche su monitor enormi. Su schermi larghi il contenuto si **centra** con margini laterali; non si allarga a tutta la viewport.
+
+## Perché
+
+Righe oltre ~75 caratteri sono faticose: l'occhio perde il capo della riga successiva. La larghezza extra del monitor va in margini e respiro, non in righe chilometriche. Riempire lo schermo non è un obiettivo; leggere senza fatica lo è.
+
+## Ma io pensavo che riempire lo schermo sfruttasse meglio lo spazio
+
+Riempire non è leggere. Un blocco di testo a tutta larghezza su 1920px è ostico. Lo spazio in più serve a incorniciare il contenuto, non a stirarlo. Vale per i testi; tabelle e dashboard hanno regole loro e possono usare tutta la larghezza.
+
+:::tip[In una riga]
+La riga di testo si ferma a ~700px e si centra. Lo spazio extra è margine, non larghezza.
+:::

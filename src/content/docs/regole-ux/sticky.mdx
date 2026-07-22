@@ -1,0 +1,47 @@
+---
+title: "Cosa resta sticky"
+sidebar:
+  label: "Cosa resta sticky"
+  order: 10
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Sticky", text: "Solo navigazione e azioni primarie", tone: "ok" },
+  { label: "Scorre", text: "Tutto il resto: contenuto, sezioni, decorazioni" },
+]} />
+
+## Regola
+
+Restano sticky solo gli elementi di orientamento e azione costante: header/nav primaria e le azioni primarie di un flusso lungo (il footer di un form o di un drawer). Scorre via tutto il resto. Non impilare più barre sticky: mangiano il verticale.
+
+## Perché
+
+Lo sticky costa spazio permanente sullo schermo: si paga solo per ciò che serve davvero sempre. Troppi elementi fissi divorano la viewport e schiacciano il contenuto in una feritoia.
+
+## Ma io pensavo di fissare più barre per tenere tutto a portata
+
+Ogni barra sticky ruba altezza: due o tre insieme lasciano una fessura per il contenuto. Fissa il minimo indispensabile.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Header sticky + footer azioni sticky in un form lungo, contenuto che scorre.
+- Toolbar di una tabella sticky, righe che scorrono sotto.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Header + sotto-header + toolbar + footer tutti sticky: contenuto in una feritoia.
+
+:::tip[In una riga]
+Sticky solo navigazione e azioni primarie. Il resto scorre.
+:::

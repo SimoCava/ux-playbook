@@ -1,0 +1,61 @@
+---
+title: "Scroll infinito o paginazione"
+sidebar:
+  label: "Scroll o paginazione"
+  order: 15
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Scroll infinito" to="Paginazione dove si confronta" />
+
+## Regola
+
+- **Scroll infinito** per il consumo esplorativo e continuo (feed, gallerie, discovery), dove naturale su mobile.
+- **Paginazione** quando servono orientamento, ritorno a una posizione precisa, confronto e completezza (tabelle di lavoro, risultati di ricerca, cataloghi da comparare).
+- La scelta può **invertirsi** tra mobile e web: lo stesso feed può essere scroll infinito su mobile e "carica altro" o paginazione sul web, dove l'utente lavora e vuole ritrovare le cose.
+
+## Perché
+
+Lo scroll infinito toglie il senso di posizione e rende irraggiungibile il footer; la paginazione dà controllo e ripetibilità. La regola condivisa è di intento: se l'utente esplora, scroll; se cerca qualcosa di preciso, confronta o deve tornare indietro, paginazione. Non a caso molti e-commerce e liste di lavoro restano su paginazione o su "carica altro", proprio perché l'utente confronta, torna sui suoi passi e salva la posizione, mentre i feed di scoperta stanno bene sullo scroll continuo. Un dettaglio spesso citato: lo scroll infinito rende difficile da raggiungere tutto ciò che sta nel footer.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    i feed di scoperta e le gallerie vanno bene in scroll infinito (spesso con un "carica altro" e URL paginati sotto, per SEO e ritorno).
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    le tabelle di lavoro vogliono paginazione. Servono numeri di pagina, ritorno a una riga precisa, e un footer sempre raggiungibile.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo che lo scroll infinito fosse sempre più fluido
+
+Fluido per sfogliare, pessimo per ritrovare: "torna al 47° risultato" è impossibile in scroll infinito e banale con le pagine. E il footer, con le info importanti, diventa una chimera.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Feed di immagini. Scroll infinito.
+- Tabella ordini in una webapp. Paginazione con numeri di pagina.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Tabella gestionale in scroll infinito: footer irraggiungibile, nessun ritorno.
+
+:::tip[In una riga]
+Sfogliare: scroll. Ritrovare, confrontare, gestire: paginazione. L'inversione tra mobile e web è normale.
+:::

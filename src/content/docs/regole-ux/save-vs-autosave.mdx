@@ -1,0 +1,48 @@
+---
+title: "Save o autosave"
+sidebar:
+  label: "Save o autosave"
+  order: 3
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+import { Badge } from '@astrojs/starlight/components';
+
+<Decision items={[
+  { label: "Autosave", text: "Editor, bozze, impostazioni a effetto immediato" },
+  { label: "Save esplicito", text: "Pubblicazione, invio, transazioni" },
+]} />
+
+## Regola
+
+Autosave come default per editor, documenti, bozze e impostazioni a effetto immediato, mostrando sempre lo stato ("Salvataggio…", "Salvato"). Save esplicito quando il salvataggio ha conseguenze (pubblicazione, invio, commit di una transazione) o serve un momento di conferma.
+
+## Perché
+
+L'autosave elimina la paura di perdere il lavoro; il save esplicito segna un confine intenzionale. Il problema non è "quale è meglio", ma non dire mai all'utente in che stato è.
+
+## Ma io pensavo che l'autosave rendesse il pulsante Salva inutile ovunque
+
+Quando salvare significa rendere pubblico o definitivo, l'utente deve poter scegliere il momento. Autosalvi la bozza, non la pubblicazione.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Editor di testo: autosave + indicatore "Salvato".
+- "Pubblica" / "Invia ordine": azione esplicita.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Autosave silenzioso senza nessun indicatore di stato.
+- Pulsante "Salva" su impostazioni che dovrebbero applicarsi subito.
+
+:::tip[In una riga]
+Autosalva la bozza, fai confermare la pubblicazione, e mostra sempre lo stato.
+:::

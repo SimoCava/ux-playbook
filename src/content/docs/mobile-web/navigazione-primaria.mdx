@@ -1,0 +1,63 @@
+---
+title: "La navigazione primaria"
+sidebar:
+  label: "Navigazione primaria"
+  order: 4
+---
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Transform from="Bottom tab bar" to="Top-nav o sidebar" />
+
+## Regola
+
+La bottom tab bar (valida per 3-5 destinazioni su mobile) sul web non resta in basso. Diventa:
+
+- **Top-nav orizzontale** se le destinazioni primarie sono poche (fino a ~7) e il prodotto è un sito o è centrato sui contenuti.
+- **Sidebar verticale** se le destinazioni sono molte, gerarchiche, o il prodotto è uno strumento o una dashboard.
+
+## Perché
+
+La barra in basso esiste per il pollice. Sul web il pollice non c'è e lo spazio verticale è prezioso, quindi la navigazione si sposta ai bordi che il mouse raggiunge comodamente: in orizzontale in alto, o in verticale a sinistra. Tenere una barra di navigazione in fondo a un monitor la mette lontano dal focus, innaturale col mouse e mangia altezza utile.
+
+## Sito vetrina vs webapp
+
+<CardGrid>
+  <Card title="Sito vetrina">
+    <Badge text="Vetrina" variant="tip" />
+
+    top-nav orizzontale. Poche voci, ben visibili, con la CTA principale a destra. La gerarchia è piatta.
+  </Card>
+  <Card title="Webapp / gestionale">
+    <Badge text="Webapp" variant="note" />
+
+    sidebar verticale. Regge molte voci, sezioni annidate, stati attivi, ed è collassabile per dare respiro all'area di lavoro. La gerarchia è profonda.
+  </Card>
+</CardGrid>
+
+## Ma io pensavo di poter tenere la barra in basso anche su web, per coerenza
+
+Coerenza di comportamento, non di posizione: le stesse destinazioni, raggiungibili dove il mouse le prende. Una tab bar fissa in fondo a un desktop è lontana, innaturale e spreca lo spazio verticale.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Sito con 5 sezioni. Mobile: tab bar. Web: top-nav con CTA a destra.
+- App con molte sezioni. Mobile: tab bar o menu. Web: sidebar sinistra collassabile.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Tab bar fissa in basso su desktop.
+- Sidebar con 3 sole voci su un sito vetrina (sproporzione: meglio top-nav).
+
+:::tip[In una riga]
+In basso col pollice, ai bordi col mouse: top-nav se le voci sono poche, sidebar se sono tante o profonde.
+:::
