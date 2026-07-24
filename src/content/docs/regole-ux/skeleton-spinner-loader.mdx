@@ -1,12 +1,15 @@
 ---
 title: "Skeleton, spinner o loader"
 sidebar:
-  label: "Skeleton, spinner o loader"
+  label: "Mostrare l'attesa"
   order: 8
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="principio" fonte="Soglia di Doherty: interazione sotto i 400ms" />
 
 <Decision items={[
   { label: "Skeleton", text: "Conosci la forma del contenuto in arrivo" },
@@ -22,7 +25,9 @@ Skeleton quando conosci la forma del contenuto in arrivo (liste, card, tabelle, 
 
 Lo skeleton comunica cosa sta arrivando e riduce il salto di layout; lo spinner va bene per un'attesa breve e localizzata; il full-page blocca tutto e va limitato al boot. Usarli a caso fa percepire l'app più lenta di quanto sia.
 
-## Ma io pensavo che uno spinner ovunque fosse la scelta neutra
+## L'obiezione ricorrente
+
+**Ma io pensavo che uno spinner ovunque fosse la scelta neutra**
 
 Lo spinner non dice nulla sul contenuto e su aree grandi sembra un blocco. Dove conosci la struttura, lo skeleton è più informativo e più veloce da percepire.
 
@@ -45,6 +50,10 @@ Lo spinner non dice nulla sul contenuto e su aree grandi sembra un blocco. Dove 
 - Full-page loader a ogni cambio di sezione interna.
 - Grande spinner centrale al posto di uno skeleton di lista.
 
-:::tip[In una riga]
-Conosci la forma: skeleton. Attesa piccola: spinner. Full-page solo al boot.
-:::
+## Casi di confine
+
+Tre indicatori si confondono. Lo **scheletro** anticipa la forma di ciò che sta arrivando. L'**indicatore di attesa** dice solo che qualcosa sta succedendo, senza dire quanto manca. L'**indicatore di avanzamento** è cosa diversa da entrambi: mostra un progresso misurabile e spesso permette di intervenire, mettendo in pausa o annullando. Se puoi dire all'utente a che punto è, usare un indicatore che gira è uno spreco di informazione.
+
+## Principio collegato
+
+Questa regola applica il principio [Quanto dura](../../principi/quanto-dura/).

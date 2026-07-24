@@ -1,12 +1,15 @@
 ---
 title: "Dove mostrare gli errori"
 sidebar:
-  label: "Errori per gravità"
+  label: "Comunicare un errore"
   order: 4
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Locale", text: "Campo singolo o azione fallita: inline o toast" },
@@ -28,7 +31,9 @@ L'errore si mostra dove nasce, con un peso proporzionale alla gravità.
 
 Un errore mostrato nel posto sbagliato o è invisibile (un toast per un campo) o è sproporzionato (una modale per un typo). La posizione comunica la gravità prima ancora del testo.
 
-## Ma io pensavo che una modale rendesse l'errore più visibile
+## L'obiezione ricorrente
+
+**Ma io pensavo che una modale rendesse l'errore più visibile**
 
 La modale blocca tutto anche per un errore banale. Serve visibilità proporzionata: inline per il campo, toast per l'azione, pagina solo quando davvero non si può proseguire.
 
@@ -50,6 +55,6 @@ La modale blocca tutto anche per un errore banale. Serve visibilità proporziona
 - Modale per un errore di validazione di un singolo campo.
 - Toast che sparisce per un errore che blocca l'intero flusso.
 
-:::tip[In una riga]
-L'errore vive dove nasce e pesa quanto pesa il problema.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Quanto dura](../../principi/quanto-dura/).

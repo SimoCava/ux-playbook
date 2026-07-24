@@ -2,11 +2,14 @@
 title: "Il toast e la sua posizione"
 sidebar:
   label: "Toast"
-  order: 13
+  order: 14
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Basso al centro" to="In un angolo" />
 
@@ -18,7 +21,9 @@ Il toast, che su mobile vive in basso al centro (a portata di pollice), sul web 
 
 In basso al centro su mobile funziona perché è dove guarda il pollice e non copre il contenuto scrollabile. Sul web quello stesso punto copre il centro dell'area di lavoro; l'angolo è meno invadente e più vicino alle convenzioni desktop. E un toast che sparisce mentre l'utente muove il mouse verso "Annulla" è una trappola: se c'è un'azione, il tempo lo decide l'utente.
 
-## Ma io pensavo che tutti i toast dovessero sparire da soli
+## L'obiezione ricorrente
+
+**Ma io pensavo che tutti i toast dovessero sparire da soli**
 
 Solo quelli puramente informativi. Se offri un'azione, togliere il toast prima che l'utente la usi vanifica l'intero pattern.
 
@@ -40,6 +45,12 @@ Solo quelli puramente informativi. Se offri un'azione, togliere il toast prima c
 - Toast con "Annulla" che scompare dopo 3 secondi.
 - Toast centrale che copre il contenuto su desktop.
 
-:::tip[In una riga]
-Dal basso-centro all'angolo. Informativo: sparisce. Con azione: resta.
-:::
+## Casi di confine
+
+Tre messaggi si somigliano e sono cose diverse, e la discriminante è **chi decide quando finiscono**. Il messaggio temporaneo lo chiude il tempo. Il banner lo chiude la risoluzione del problema che lo ha generato, quindi resta anche cambiando pagina. Il dialog lo chiude l'utente con un click.
+
+Lo stesso identico testo cambia natura in base a dove sta: un messaggio di conferma **sopra** il contenuto è un toast, lo stesso messaggio **dentro** il contenuto è un banner. E un messaggio temporaneo con la punta rivolta a un elemento somiglia a un tooltip pur non essendolo: va evitato, perché promette un ancoraggio che non c'è. Il nome "snackbar" indica di solito la versione che porta con sé un'azione.
+
+## Principio collegato
+
+Questa regola applica il principio [Quanto dura](../../principi/quanto-dura/).

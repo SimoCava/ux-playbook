@@ -1,12 +1,13 @@
 ---
 title: "Il breakpoint"
 sidebar:
-  label: "Breakpoint"
+  label: "Soglie e breakpoint"
   order: 1
 ---
+import Evidence from '@/components/Evidence.astro';
 import { Badge } from '@astrojs/starlight/components';
 
-<Badge text="Riferimento" variant="default" />
+<Evidence kind="convenzione" />
 
 ## Regola
 
@@ -28,10 +29,8 @@ Senza una soglia condivisa ognuno immagina un confine diverso, e le stesse regol
 I canvas di riferimento del design system sono 393px (mobile) e 1920px (desktop). Sono le tele su cui si disegna, non le soglie: il breakpoint è il confine di categoria, non la larghezza di un device specifico.
 :::
 
-## Ma io pensavo che i breakpoint dipendessero dai singoli componenti
+## L'obiezione ricorrente
+
+**Ma io pensavo che i breakpoint dipendessero dai singoli componenti**
 
 Un componente può avere aggiustamenti interni, ma il confine di categoria (quale set di regole applico) è uno solo per tutto il prodotto. Altrimenti non è un dogma, è un'opinione per pixel.
-
-:::tip[In una riga]
-Mobile < 768, tablet 768-1024, desktop >= 1024. Uguale ovunque.
-:::

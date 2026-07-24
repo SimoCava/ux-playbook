@@ -1,12 +1,15 @@
 ---
 title: "Strutturare le form"
 sidebar:
-  label: "Strutturare le form"
+  label: "Costruire una form"
   order: 6
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="dato" fonte="Baymard Institute, ricerca sui flussi di checkout" />
 
 <Decision items={[
   { label: "Colonna singola", text: "Il default: un solo percorso di lettura, dall'alto in basso" },
@@ -36,7 +39,9 @@ La colonna singola dà un percorso di lettura unico, senza ambiguità sull'ordin
   </Card>
 </CardGrid>
 
-## Ma io pensavo che su desktop due colonne sfruttassero meglio lo spazio
+## L'obiezione ricorrente
+
+**Ma io pensavo che su desktop due colonne sfruttassero meglio lo spazio**
 
 Sfruttare lo spazio non è l'obiettivo: compilare senza errori lo è. La larghezza extra si usa per margini e respiro, non per raddoppiare le colonne. E spezzare un form breve in tanti step è burocrazia.
 
@@ -59,6 +64,6 @@ Sfruttare lo spazio non è l'obiettivo: compilare senza errori lo è. La larghez
 - Form diviso in due colonne verticali che rompono l'ordine di compilazione.
 - Form breve spezzato in tanti step con un campo ciascuno.
 
-:::tip[In una riga]
-Un form si legge in colonna. Affianca solo coppie corte, raggruppa in sezioni, spezza in step solo con complessità vera.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Una scelta o molte](../../principi/una-scelta-o-molte/).

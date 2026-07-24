@@ -62,6 +62,15 @@ html { font-size: 106.25%; }                 /* base ~17px */
   --container-max-width: 1440px;
 }
 
+/* ContainerSection di Lucode (usato dalla Hero delle pagine "splash" e da
+   altre sezioni a larghezza fissa): senza questa riga il reset di Starlight
+   vince su quella di Lucode e .container-wrapper resta ancorato a sinistra
+   invece di centrarsi quando scatta il suo max-width. */
+.container-wrapper {
+  width: 100%;
+  margin-inline: auto;
+}
+
 /* Uso visibile del primary: link nel contenuto e voce attiva */
 .sl-markdown-content a { color: var(--primary); text-underline-offset: 2px; }
 a[aria-current='page'] { color: var(--primary) !important; }
@@ -196,6 +205,15 @@ a[aria-current='page'] { color: var(--primary) !important; }
   .vh-kv-table th {
     white-space: normal;
   }
+}
+
+/* Voce attiva nella navbar accanto al logo: Lucode non definisce nessuno
+   stile per .active (la classe viene applicata via script, vedi
+   astro.config.mjs), quindi qui l'aspetto rispecchia quello della sidebar. */
+.nav-bar a.active {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  font-weight: 500;
 }
 
 /* Logo: niente squeeze, mantieni le proporzioni */

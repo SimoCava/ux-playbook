@@ -1,0 +1,81 @@
+---
+title: "Linee guida web"
+description: "Cosa cambia davvero passando da mobile a web, e le regole UX che tornano sempre."
+---
+import { Card, CardGrid, LinkCard, Badge } from '@astrojs/starlight/components';
+
+## Cos'è
+
+Uno strumento per chiudere i dubbi **prima** che diventino discussione. Ogni pagina risponde a una domanda che in una revisione torna sempre, e dà una risposta sola, motivata e difendibile.
+
+Il fuoco principale è una cosa precisa: cosa cambia nel comportamento di un elemento quando un progetto passa da mobile a web. Attorno a quello ci sono le decisioni ricorrenti che valgono su qualsiasi prodotto, dal sito al gestionale.
+
+## Cosa non è
+
+Non è un design system: non contiene componenti, token o codice. Non è un catalogo: non troverai una voce per ogni elemento con la sua definizione. Se cerchi cos'è un certo componente, questa non è la guida giusta; se cerchi come deve comportarsi e perché, sì.
+
+## Le cinque aree
+
+<CardGrid>
+  <LinkCard
+    title="Mobile → Web"
+    href="../../mobile-web/cosa-esiste-dove/"
+    description="Il cuore. I comportamenti che si trasformano davvero passando al desktop, perché nascono da vincoli che sul web non esistono più."
+  />
+  <LinkCard
+    title="Regole UX"
+    href="../../regole-ux/conferma-vs-undo/"
+    description="Le decisioni ricorrenti, valide anche sui gestionali: conferme, errori, form, attese, stati vuoti."
+  />
+  <LinkCard
+    title="Principi"
+    href="../../principi/quanto-interrompe/"
+    description="I sei criteri che stanno sotto tutte le regole. Si consultano quando un caso non è coperto da nessuna regola e va derivato."
+  />
+  <LinkCard
+    title="Misure"
+    href="../../misure/breakpoint/"
+    description="I numeri di riferimento: soglie, breakpoint, larghezze. Corte, da consultare al volo."
+  />
+</CardGrid>
+
+## Mappa di lettura
+
+Dove andare a seconda del dubbio che hai:
+
+| Il tuo dubbio | Dove guardare |
+| --- | --- |
+| Questo elemento sul web cosa diventa? | Mobile → Web |
+| Come mi comporto in questa situazione? | Regole UX |
+| Mi serve un numero, una soglia | Misure |
+| Il mio caso non è coperto da nessuna regola | Principi, e lo derivi |
+| Due persone chiamano la stessa cosa in modo diverso | Casi di confine, dentro la regola interessata |
+
+## Anatomia di una regola
+
+Ogni pagina ha sempre la stessa forma, così si scansiona in pochi secondi.
+
+In cima, l'**etichetta di evidenza** dice su cosa poggia la regola. Subito sotto, un blocco dà il colpo d'occhio: nella prima area è la trasformazione da mobile a web, nelle altre è la scelta in gioco. Poi **Regola** (cosa fare, in una frase), **Perché** (il criterio dietro, con la fonte dove esiste), **Sito vetrina vs webapp** dove la risposta si biforca, **L'obiezione ricorrente** (la contestazione più comune, già smontata), **Esempi corretti** e **Anti-pattern** che diventano le immagini, **Casi di confine** dove serve distinguere cose che si somigliano, e infine il rimando al **principio** che la regola applica.
+
+## Le quattro etichette
+
+L'etichetta in cima a ogni regola dice quanto è solido ciò che stai leggendo. Serve a sapere quanto puoi spingere quando qualcuno contesta.
+
+| Etichetta | Significato |
+| --- | --- |
+| **Norma** | Prescritto da uno standard verificabile: accessibilità, linee guida di piattaforma |
+| **Dato** | Misurato da ricerca con numeri pubblicati |
+| **Principio** | Modello di psicologia cognitiva validato sperimentalmente |
+| **Convenzione** | Consenso professionale diffuso, senza misurazione che lo dimostri |
+
+Nessuna delle quattro è meno vera delle altre: cambiano il tipo di prova, non l'autorità della regola dentro questo documento.
+
+## Convenzioni delle immagini
+
+Ogni trasformazione è una coppia affiancata Mobile e Web con lo stesso contenuto nei due contenitori. Ogni scelta secca è una coppia Corretto ed Errato. Wireframe essenziali, non schermate reali: la regola deve restare leggibile e non invecchiare insieme all'interfaccia.
+
+## Come si aggiorna
+
+Le regole valgono finché non vengono ribaltate, e l'etichetta dice cosa serve per ribaltarle. Per una **Norma** serve mostrare che lo standard dice altro o che è cambiato. Per un **Dato** serve una misurazione contraria. Per un **Principio** serve mostrare che il modello non si applica a quel caso. Per una **Convenzione** serve un accordo esplicito, che va scritto qui dentro.
+
+Una regola contestata a voce e non aggiornata qui continua a valere: è l'unico modo perché la guida resti utile invece di diventare un archivio di buone intenzioni.

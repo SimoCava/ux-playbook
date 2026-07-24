@@ -2,11 +2,14 @@
 title: "I tooltip senza hover"
 sidebar:
   label: "Tooltip"
-  order: 10
+  order: 11
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="norma" fonte="WCAG, informazione non veicolata dal solo hover" />
 
 <Transform from="Niente hover" to="Tooltip solo per l'accessorio" />
 
@@ -18,7 +21,9 @@ Il tooltip può ospitare solo informazione accessoria (l'etichetta di un'icona, 
 
 Il tooltip appare in hover, che sul mobile non esiste e da tastiera è incostante. Se l'informazione è indispensabile e vive solo lì, per una fetta di utenti semplicemente non esiste. Sul web è facile abusarne perché l'hover è a portata di mouse, ma il costo lo pagano touch e tastiera.
 
-## Ma io pensavo che il tooltip fosse un buon posto per le spiegazioni
+## L'obiezione ricorrente
+
+**Ma io pensavo che il tooltip fosse un buon posto per le spiegazioni**
 
 Per un chiarimento marginale sì. Per un'istruzione necessaria no: va mostrata come testo, label o helper visibile. Il tooltip è un extra opzionale, non un contenitore di verità nascoste.
 
@@ -40,6 +45,12 @@ Per un chiarimento marginale sì. Per un'istruzione necessaria no: va mostrata c
 - Istruzione essenziale disponibile solo passando il mouse su una "i".
 - Icona da sola con significato affidato al solo tooltip.
 
-:::tip[In una riga]
-Nel tooltip solo l'accessorio. Ciò che serve davvero sta a schermo.
-:::
+## Casi di confine
+
+La differenza con un pannello ancorato è il gesto che lo apre: il tooltip compare al passaggio del mouse, il pannello ancorato richiede un click. Ne segue una conseguenza pratica: il pannello ancorato può contenere più di una lista di opzioni e anche controlli, il tooltip no.
+
+Su mobile, dove il passaggio del mouse non esiste, l'equivalente è il tocco sull'icona informativa. Il che significa che l'icona deve essere abbastanza grande da essere toccata, e quindi rientra nelle dimensioni minime dei bersagli.
+
+## Principio collegato
+
+Questa regola applica il principio [Sembra cliccabile](../../principi/sembra-cliccabile/).

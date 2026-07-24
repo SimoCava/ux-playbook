@@ -1,0 +1,29 @@
+---
+// Mostra in sidebar solo il gruppo (macro-sezione) a cui appartiene la
+// pagina corrente, invece di tutti i gruppi insieme. Filtra
+// `Astro.locals.starlightRoute.sidebar` *prima* di delegare il rendering
+// al componente Sidebar di Lucode, così il resto (fade, scroll, stile)
+// resta identico.
+import Sidebar from 'lucode-starlight/components/overrides/Sidebar.astro';
+import type { StarlightRouteData } from '@astrojs/starlight/route-data';
+
+type SidebarEntry = StarlightRouteData['sidebar'][number];
+
+function groupHasCurrentPage(entry: SidebarEntry): boolean {
+  if (entry.type === 'link') return entry.isCurrent;
+  return entry.entries.some(groupHasCurrentPage);
+}
+
+const { starlightRoute } = Astro.locals;
+const activeGroups = starlightRoute.sidebar.filter(
+  (entry) => entry.type !== 'group' || groupHasCurrentPage(entry)
+);
+
+// Rete di sicurezza: se per qualche motivo nessun gruppo contiene la
+// pagina corrente, mostra la sidebar completa invece di una vuota.
+if (activeGroups.length > 0) {
+  starlightRoute.sidebar = activeGroups;
+}
+---
+
+<Sidebar />

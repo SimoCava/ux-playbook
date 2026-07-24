@@ -2,11 +2,14 @@
 title: "Le azioni in hover"
 sidebar:
   label: "Azioni in hover"
-  order: 8
+  order: 9
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="norma" fonte="WCAG 2.5.5 e 2.5.8, Apple HIG, Material Design" />
 
 <Transform from="Niente hover (touch)" to="Hover solo come extra" />
 
@@ -18,7 +21,9 @@ Nessuna azione o informazione essenziale deve dipendere solo dall'hover. Tutto c
 
 Il web ha portato l'hover, che su mobile non esisteva, ed è una tentazione: nascondere i controlli finché non ci passi sopra. Ma l'hover non è affidabile. I laptop touchscreen, i 2-in-1 e i tablet con puntatore passano da un input all'altro di continuo, e la regola condivisa è netta: le azioni critiche non devono mai dipendere dal solo `:hover`. Le media query `hover` e `any-hover` esistono apposta per distinguere questi casi; su un dispositivo senza hover i controlli vanno resi sempre visibili, con target di tocco ampi.
 
-## Ma io pensavo che tanto tutti i desktop hanno il mouse
+## L'obiezione ricorrente
+
+**Ma io pensavo che tanto tutti i desktop hanno il mouse**
 
 Falso da anni: gli ibridi touch sono diffusi, e anche col mouse l'hover è invisibile finché non ci capiti sopra. Progettare per il solo hover esclude una fetta reale di utenti e ogni navigazione da tastiera.
 
@@ -40,6 +45,6 @@ Falso da anni: gli ibridi touch sono diffusi, e anche col mouse l'hover è invis
 - Controlli che compaiono unicamente al passaggio del mouse.
 - Informazione critica affidata a un tooltip che su touch non appare mai.
 
-:::tip[In una riga]
-L'hover aggiunge, non è mai l'unica strada. Tutto deve funzionare anche senza.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Sembra cliccabile](../../principi/sembra-cliccabile/).

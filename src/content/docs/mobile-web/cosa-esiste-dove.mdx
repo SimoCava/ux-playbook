@@ -1,0 +1,59 @@
+---
+title: "Cosa esiste dove"
+sidebar:
+  label: "Cosa esiste dove"
+  order: 1
+---
+import Evidence from '@/components/Evidence.astro';
+import Figure from '@/components/Figure.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" fonte="Linee guida di piattaforma e rilevazione su prodotti reali" />
+
+## Regola
+
+Prima di chiederti come adattare un elemento, controlla se su quella piattaforma **esiste**. Alcuni componenti non attraversano il confine: vanno sostituiti, non ridimensionati. Altri nascono solo passando al web, e vanno aggiunti, non ereditati.
+
+**Vivono solo sul web**: campo che unisce ricerca e selezione, palette di comandi, menu del tasto destro, caricamento file per trascinamento, collegamento ipertestuale, menu di navigazione esteso a più colonne, impaginazione a numeri, pannello ancorato a un elemento, indice dei contenuti, alberi di elementi annidati.
+
+**Vivono solo su mobile**: pannello che sale dal basso, schermata di avvio, barra di navigazione in fondo. Il foglio di azioni nasce come elemento di sistema iOS.
+
+## Perché
+
+La domanda "come faccio questo componente sul desktop" è spesso mal posta, perché presuppone che il componente debba esistere di là. Metà degli errori di conversione nasce da qui: si trascina un pannello dal basso su un monitor, oppure si lascia un prodotto web senza tasto destro e senza scorciatoie perché sul telefono non c'erano.
+
+Ragionare per **funzione** invece che per componente evita il problema: non "dove metto il pannello dal basso", ma "dove va la funzione che quel pannello svolgeva". La funzione attraversa sempre il confine, il contenitore quasi mai.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che un design system servisse proprio ad avere gli stessi componenti ovunque**
+
+Un design system tiene insieme il linguaggio, non impone gli stessi contenitori su piattaforme con input diversi. Colori, tipografia, spaziature, tono: quelli restano. Un pannello nato per il pollice e un menu nato per il tasto destro non sono lo stesso componente in due misure, sono due risposte allo stesso bisogno.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Il pannello dal basso non viene portato sul web: la sua funzione viene ripresa da un pannello laterale, da un dialog o da un menu ancorato.
+- Passando al web si aggiungono le funzioni che prima non esistevano: tasto destro, trascinamento dei file, scorciatoie da tastiera.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Riprodurre il pannello dal basso su desktop per "coerenza col mobile".
+- Un prodotto web che non offre nessuna scorciatoia perché nella versione mobile non c'erano.
+
+## Casi di confine
+
+Alcuni elementi esistono su entrambe le piattaforme ma **cambiano il gesto** che li richiama, e questo li fa sembrare assenti quando non lo sono. Il menu contestuale sul web si apre col tasto destro, su mobile con la pressione prolungata. La spiegazione di un'icona sul web compare al passaggio del mouse, su mobile al tocco. In questi casi non si aggiunge né si toglie niente: si rimappa l'attivazione.
+
+Attenzione anche al caso inverso, il più trascurato: il web non toglie soltanto. Il trascinamento dei file, le scorciatoie da tastiera e i menu a più colonne sono capacità che compaiono solo di là, e ignorarle produce un prodotto desktop che sembra un telefono ingrandito.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

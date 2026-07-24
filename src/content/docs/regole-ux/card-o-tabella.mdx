@@ -1,12 +1,15 @@
 ---
 title: "Card o tabella"
 sidebar:
-  label: "Card o tabella"
+  label: "Mostrare molti elementi"
   order: 13
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Tabella", text: "Dati confrontabili e strutturati, da ordinare e scansionare" },
@@ -36,7 +39,9 @@ La tabella è imbattibile per confrontare valori sulla stessa colonna; la card �
   </Card>
 </CardGrid>
 
-## Ma io pensavo che le card fossero sempre più moderne
+## L'obiezione ricorrente
+
+**Ma io pensavo che le card fossero sempre più moderne**
 
 Per 200 righe di dati confrontabili, una griglia di card costringe a scorrere all'infinito senza poter allineare i valori. Lì serve una tabella.
 
@@ -58,6 +63,12 @@ Per 200 righe di dati confrontabili, una griglia di card costringe a scorrere al
 - 300 record tabellari resi come griglia infinita di card.
 - Contenuto ricco e visuale compresso in righe di tabella spoglie.
 
-:::tip[In una riga]
-Dati confrontabili: tabella. Contenuti visuali ed eterogenei: card.
-:::
+## Casi di confine
+
+La card non va confusa con la tessera di selezione. Toccare una card porta a vedere qualcosa di più; toccare una tessera cambia soltanto il suo stato di selezione. La seconda è, di fatto, un controllo di scelta travestito da riquadro. Se il tocco non porta da nessuna parte, non stai facendo una card.
+
+Su mobile la tabella vera è quasi sempre la scelta sbagliata, perché costringe a scorrere su due assi contemporaneamente. La forma corretta è l'elenco impilato, che non è un ripiego: è la stessa tabella ridotta a una colonna, con le etichette accanto ai valori.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

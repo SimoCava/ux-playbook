@@ -1,12 +1,15 @@
 ---
 title: "Azioni distruttive reversibili"
 sidebar:
-  label: "Distruttiva reversibile"
+  label: "Azioni che distruggono"
   order: 2
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Reversibile", text: "Cestino, archivio, soft-delete: fai e offri undo", tone: "ok" },
@@ -21,7 +24,9 @@ Se l'azione distruttiva è reversibile (cestino, archivio, soft-delete), niente 
 
 Reversibilità e conferma servono allo stesso scopo: prevenire il danno. Averle entrambe è ridondante e rallenta. Ne basta una, e l'undo è meno invasivo.
 
-## Ma io pensavo che "elimina" meritasse sempre una conferma
+## L'obiezione ricorrente
+
+**Ma io pensavo che "elimina" meritasse sempre una conferma**
 
 Solo se è definitivo. Se finisce nel cestino e si recupera, l'undo è sufficiente e più veloce.
 
@@ -42,6 +47,6 @@ Solo se è definitivo. Se finisce nel cestino e si recupera, l'undo è sufficien
 
 - Modale di conferma per un'azione che ha già un undo.
 
-:::tip[In una riga]
-Se si può annullare, non chiedere il permesso: offri l'Annulla.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Quanto interrompe](../../principi/quanto-interrompe/).

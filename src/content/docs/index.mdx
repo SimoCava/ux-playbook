@@ -1,37 +1,18 @@
 ---
 title: "Linee guida web"
 description: "Cosa cambia davvero passando da mobile a web, e le regole UX che tornano sempre."
+template: splash
+hero:
+  tagline: "Cosa cambia davvero passando da mobile a web, e le regole UX che tornano sempre."
+  layout: centered-top
+  image:
+    html: |
+      <div style="display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:16/9;border-radius:12px;border:2px dashed var(--sl-color-gray-4);background:repeating-linear-gradient(45deg,transparent,transparent 10px,color-mix(in srgb,var(--sl-color-gray-5) 22%,transparent) 10px,color-mix(in srgb,var(--sl-color-gray-5) 22%,transparent) 11px);color:var(--sl-color-gray-2);font-size:0.95rem;text-align:center;">Immagine da inserire (Claude Design)</div>
+  actions:
+    - text: "Inizia da Mobile → Web"
+      link: ./mobile-web/cosa-esiste-dove/
+      variant: primary
+    - text: "Vai alla panoramica"
+      link: ./introduzione/panoramica/
+      variant: secondary
 ---
-import { Card, CardGrid } from '@astrojs/starlight/components';
-
-export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-Questa guida serve a chiudere i dubbi prima che diventino discussione. Non descrive "come si fa una UI", ma una cosa più precisa: cosa cambia nel comportamento di un elemento quando un progetto passa da mobile a web, e come rispondere ai dubbi UX che tornano a ogni review.
-
-## Le tre aree
-
-<CardGrid>
-  <a class="vh-card-link" href={`${base}/mobile-web/bottom-sheet/`}>
-    <Card title="Mobile → Web" icon="mobile-android">
-      Il cuore. Comportamenti che si trasformano davvero passando al desktop: bottom sheet, tab bar, swipe, pull-to-refresh non esistono così su web e devono diventare altro.
-    </Card>
-  </a>
-  <a class="vh-card-link" href={`${base}/fondamentali/breakpoint/`}>
-    <Card title="Fondamentali" icon="puzzle">
-      Le premesse di riferimento che reggono tutto il resto: breakpoint, tablet e orientamento, larghezza di lettura. Corte, da consultare al volo.
-    </Card>
-  </a>
-  <a class="vh-card-link" href={`${base}/regole-ux/conferma-vs-undo/`}>
-    <Card title="Regole UX" icon="list-format">
-      Il manuale da spulciare per i dubbi ricorrenti, validi anche sui gestionali. Raccomandazioni forti, non vincoli.
-    </Card>
-  </a>
-</CardGrid>
-
-## Come leggere una regola
-
-Ogni regola ha sempre la stessa forma, così si scansiona in pochi secondi. In cima, un blocco **Mobile → Web** dà il colpo d'occhio sulla trasformazione. Poi: **Regola** (cosa fare, in una frase), **Perché** (il criterio dietro), **Sito vetrina vs webapp** dove la risposta si biforca, **Ma io pensavo…** (l'obiezione già smontata), **Esempi corretti / Anti-pattern** che diventano le immagini, e **In una riga** come sintesi tascabile.
-
-## Convenzioni delle immagini
-
-Ogni trasformazione è una coppia affiancata Mobile / Web con lo stesso contenuto nei due contenitori. Ogni scelta secca è una coppia Corretto / Errato. Wireframe essenziali, non schermate reali: la regola deve restare leggibile e non invecchiare con la UI.

@@ -1,12 +1,15 @@
 ---
 title: "Cosa resta sticky"
 sidebar:
-  label: "Cosa resta sticky"
+  label: "Cosa resta fermo"
   order: 10
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Sticky", text: "Solo navigazione e azioni primarie", tone: "ok" },
@@ -21,7 +24,9 @@ Restano sticky solo gli elementi di orientamento e azione costante: header/nav p
 
 Lo sticky costa spazio permanente sullo schermo: si paga solo per ciò che serve davvero sempre. Troppi elementi fissi divorano la viewport e schiacciano il contenuto in una feritoia.
 
-## Ma io pensavo di fissare più barre per tenere tutto a portata
+## L'obiezione ricorrente
+
+**Ma io pensavo di fissare più barre per tenere tutto a portata**
 
 Ogni barra sticky ruba altezza: due o tre insieme lasciano una fessura per il contenuto. Fissa il minimo indispensabile.
 
@@ -42,6 +47,6 @@ Ogni barra sticky ruba altezza: due o tre insieme lasciano una fessura per il co
 
 - Header + sotto-header + toolbar + footer tutti sticky: contenuto in una feritoia.
 
-:::tip[In una riga]
-Sticky solo navigazione e azioni primarie. Il resto scorre.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Dove si aggancia](../../principi/dove-si-aggancia/).

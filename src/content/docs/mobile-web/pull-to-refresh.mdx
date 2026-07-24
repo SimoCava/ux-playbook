@@ -2,11 +2,14 @@
 title: "Il pull-to-refresh"
 sidebar:
   label: "Pull-to-refresh"
-  order: 7
+  order: 8
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Pull-to-refresh" to="Auto-refresh + bottone" />
 
@@ -33,7 +36,9 @@ Trascinare la pagina verso il basso per aggiornare è un gesto touch-only: col m
   </Card>
 </CardGrid>
 
-## Ma io pensavo che i dati si aggiornassero al reload della pagina
+## L'obiezione ricorrente
+
+**Ma io pensavo che i dati si aggiornassero al reload della pagina**
 
 Il reload completo è un martello: perde scroll, filtri e selezioni. Meglio aggiornare solo i dati che servono, in background o su richiesta.
 
@@ -55,6 +60,6 @@ Il reload completo è un martello: perde scroll, filtri e selezioni. Meglio aggi
 - Nessun modo di aggiornare se non ricaricando tutta la pagina.
 - Tentare di replicare il pull-to-refresh col trascinamento del mouse.
 
-:::tip[In una riga]
-Niente pull sul web: auto-refresh dove serve, bottone esplicito dove conta.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Sembra cliccabile](../../principi/sembra-cliccabile/).

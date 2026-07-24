@@ -1,0 +1,50 @@
+---
+title: "Quanto interrompe"
+sidebar:
+  label: "Quanto interrompe"
+  order: 1
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+
+<Decision items={[
+  { label: "Non blocca", text: "Convive col contenuto: l'utente può ignorarlo" },
+  { label: "Blocca in parte", text: "Copre una porzione, il contesto resta leggibile" },
+  { label: "Blocca tutto", text: "Sospende il contesto fino a una decisione", tone: "bad" },
+  { label: "Sostituisce", text: "Il contesto viene lasciato: c'è un indirizzo proprio" },
+]} />
+
+## Il criterio
+
+Prima di scegliere un contenitore, decidi **quanto quel contenuto ha il diritto di fermare l'utente**. L'invasività si paga: più blocchi, più stai dicendo che ciò che mostri vale più di ciò che l'utente stava facendo. Deve essere vero.
+
+La domanda che risolve i casi dubbi è una sola: se l'utente ignorasse questo messaggio, cosa succederebbe di male? Se la risposta è "niente", non ha diritto di bloccare.
+
+## Perché funziona così
+
+Il grado di interruzione è un segnale che l'utente legge **prima** del contenuto. Uno schermo che si oscura dietro un riquadro comunica "fermati" in una frazione di secondo, molto prima che qualcuno abbia letto una parola. Se quel segnale non corrisponde alla reale importanza del messaggio, si consuma credito: bloccare per cose banali insegna a chiudere senza leggere, e quando arriva l'interruzione che conta l'utente la scarta con lo stesso gesto automatico.
+
+Ne segue una conseguenza pratica: l'interruzione totale è una risorsa limitata. Va spesa sulle azioni irreversibili e sui blocchi veri, non distribuita ovunque per prudenza.
+
+## Casi di confine
+
+Il fatto che un pannello sia bloccante o no **non dipende dalla sua forma ma dallo sfondo**: se dietro compare un velo scuro, il pannello sospende il contesto; se manca, convive con esso. Due pannelli identici per contenuto e posizione appartengono a due categorie diverse solo per questo dettaglio, ed è giusto così, perché è ciò che cambia per l'utente.
+
+Esiste poi il caso **persistente**: un pannello che non si chiude mai del tutto e resta a occupare una porzione fissa. Non è un'interruzione, è parte del layout, anche se somiglia a un overlay.
+
+Ultima ambiguità utile: le categorie non sono esclusive. Un pannello dal basso che blocca il resto è contemporaneamente un pannello e un dialog. Non serve decidere come chiamarlo, serve sapere quanto blocca.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che bloccare fosse la scelta prudente, perché così l'utente è costretto a leggere**
+
+Costringere a leggere non è possibile: è possibile solo costringere a chiudere. Se blocchi per cose che non lo meritano, l'utente impara a chiudere senza guardare, e ottieni l'esatto contrario della prudenza. La sicurezza vera è la reversibilità, non l'ostacolo.
+
+## Regole che lo applicano
+
+- [Bottom sheet](../../mobile-web/bottom-sheet/)
+- [Modale, drawer o pagina](../../mobile-web/modale-drawer-pagina/)
+- [Modale a schermo intero](../../mobile-web/modale-schermo-intero/)
+- [Confermare o annullare](../../regole-ux/conferma-vs-undo/)
+- [Azioni che distruggono](../../regole-ux/distruttiva-reversibile/)
+- [Sovrapporre e chiudere](../../regole-ux/overlay/)

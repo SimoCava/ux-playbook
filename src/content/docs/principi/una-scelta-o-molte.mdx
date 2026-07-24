@@ -1,0 +1,46 @@
+---
+title: "Una scelta o molte"
+sidebar:
+  label: "Una scelta o molte"
+  order: 6
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+
+<Decision items={[
+  { label: "Una sola", text: "Le opzioni si escludono a vicenda" },
+  { label: "Più di una", text: "Le opzioni si possono combinare" },
+  { label: "Acceso o spento", text: "Stato binario che si applica subito" },
+]} />
+
+## Il criterio
+
+Prima di scegliere il controllo, stabilisci **quante scelte sono possibili** e **quando hanno effetto**. Esclusiva o combinabile, e immediata o confermata: da queste due domande discende il controllo, non dal gusto o dallo spazio disponibile.
+
+Il numero di opzioni decide poi se mostrarle tutte o nasconderle: poche e brevi si mostrano, molte si nascondono dietro un'apertura.
+
+## Perché funziona così
+
+Il tempo necessario a decidere cresce con il numero e la complessità delle alternative. Ne segue che mostrare tutte le opzioni conviene finché sono poche, perché il costo di leggerle è minore del costo di aprire un menu; ma superata una certa soglia il muro di alternative diventa più faticoso della ricerca, e nasconderle aiuta.
+
+C'è poi una ragione percettiva per i controlli affiancati: elementi racchiusi dentro un confine condiviso vengono percepiti come un gruppo unico. Per questo, in un controllo a segmenti, la cornice comune non è decorazione: è ciò che comunica "queste sono alternative della stessa scelta". Se separi i segmenti, l'utente smette di leggerli come alternative e li legge come voci di navigazione.
+
+## Casi di confine
+
+Quattro controlli si somigliano e rispondono a domande diverse. La scelta esclusiva ha sempre forma circolare. La scelta multipla ammette anche uno stato intermedio, quello in cui alcune sotto-voci sono selezionate e altre no, che va previsto e quasi sempre viene dimenticato. Lo stato binario che si applica subito non ha bisogno di conferma, ed è l'unico caso in cui l'assenza di un pulsante di salvataggio è corretta. Il controllo a segmenti ammette due o più alternative e si riconosce dalla cornice condivisa.
+
+Un caso a parte è il campo che unisce ricerca e selezione: fa due cose invece di una, quindi non è un semplice menu, ed è la risposta giusta quando le opzioni sono troppe per essere scorse a mano.
+
+Attenzione infine ai riquadri illustrati con icone o immagini: per quanto sembrino contenuti, spesso sono controlli di scelta travestiti. Se il tocco seleziona invece di portare altrove, sono controlli e vanno progettati come tali.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che il menu a tendina fosse sempre la scelta più ordinata**
+
+Ordinato e più lento: ogni scelta costa un'apertura, e nasconde all'utente quali alternative esistono. Con poche opzioni mostrarle tutte è più rapido e più informativo. Il menu si giustifica dai numeri alti in poi, non per simmetria visiva.
+
+## Regole che lo applicano
+
+- [Date picker](../../mobile-web/date-picker/)
+- [Far scegliere tra opzioni](../../regole-ux/selezione/)
+- [Costruire una form](../../regole-ux/strutturare-le-form/)

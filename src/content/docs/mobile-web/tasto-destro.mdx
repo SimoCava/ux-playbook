@@ -2,11 +2,14 @@
 title: "Il menu con il tasto destro"
 sidebar:
   label: "Tasto destro"
-  order: 9
+  order: 10
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="principio" fonte="Legge di Jakob: aspettative costruite altrove" />
 
 <Transform from="Niente tasto destro" to="Menu custom solo se serve" />
 
@@ -33,7 +36,9 @@ Il tasto destro è un'affordance nata sul web: su mobile non esiste. Il suo menu
   </Card>
 </CardGrid>
 
-## Ma io pensavo che un menu custom fosse sempre più professionale
+## L'obiezione ricorrente
+
+**Ma io pensavo che un menu custom fosse sempre più professionale**
 
 Solo se aggiunge azioni che il nativo non ha. Se lo sostituisci per estetica togliendo le funzioni standard del browser, stai togliendo, non aggiungendo.
 
@@ -54,6 +59,12 @@ Solo se aggiunge azioni che il nativo non ha. Se lo sostituisci per estetica tog
 
 - Menu custom su testo e link che blocca copia e apri-in-nuova-scheda.
 
-:::tip[In una riga]
-Sostituisci il menu del browser solo dove aggiungi valore, mai su contenuti normali.
-:::
+## Casi di confine
+
+Il menu contestuale non va confuso con il menu a tendina. Il primo nasce dall'elemento su cui hai agito e compare accanto ad esso; il secondo è ancorato a un pulsante che lo apre. Cambia il punto di origine, quindi cambia cosa l'utente crede che il menu riguardi.
+
+Su mobile questo menu non è assente: il suo equivalente è la pressione prolungata. Quindi non stai aggiungendo una funzione che prima non c'era, stai cambiando il gesto che la richiama. Le voci distruttive, per convenzione diffusa, stanno in fondo e in rosso.
+
+## Principio collegato
+
+Questa regola applica il principio [Dove si aggancia](../../principi/dove-si-aggancia/).

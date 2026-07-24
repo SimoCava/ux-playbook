@@ -1,12 +1,15 @@
 ---
 title: "Conferma o undo"
 sidebar:
-  label: "Conferma o undo"
+  label: "Confermare o annullare"
   order: 1
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Undo (default)", text: "Azioni reversibili: esegui subito e offri Annulla", tone: "ok" },
@@ -21,7 +24,9 @@ Default: esegui subito e offri undo (un toast con "Annulla", 5-7s). Usa la modal
 
 La conferma preventiva è attrito su ogni azione, anche innocua, e la gente impara a cliccare "Conferma" senza leggere: così non protegge più nulla. L'undo sposta l'attrito solo sui rari casi in cui serve davvero, e la sicurezza reale è la reversibilità, non l'ennesimo "sei sicuro?".
 
-## Ma io pensavo che confermare fosse sempre più sicuro
+## L'obiezione ricorrente
+
+**Ma io pensavo che confermare fosse sempre più sicuro**
 
 La conferma su tutto è rumore: allena l'utente a ignorarla. La protezione vera è poter annullare.
 
@@ -43,6 +48,6 @@ La conferma su tutto è rumore: allena l'utente a ignorarla. La protezione vera 
 - "Sei sicuro?" su ogni singola azione reversibile.
 - Eliminazione irreversibile senza nessuna conferma.
 
-:::tip[In una riga]
-Reversibile: fai e offri undo. Irreversibile e grave: conferma prima.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Quanto interrompe](../../principi/quanto-interrompe/).

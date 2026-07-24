@@ -2,11 +2,14 @@
 title: "Il bottom sheet sul web"
 sidebar:
   label: "Bottom sheet"
-  order: 1
+  order: 2
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="norma" fonte="Material Design, superfici alternative su schermi ampi" />
 
 <Transform from="Bottom sheet dal basso" to="Drawer, dialog o popover" />
 
@@ -22,7 +25,9 @@ Sul web un bottom sheet non resta un pannello che sale dal basso. Diventa una di
 
 Il bottom sheet su mobile risolve due vincoli fisici: lo spazio verticale e il pollice che arriva comodo in basso. Sul web nessuno dei due esiste. Quindi la domanda non è più "come faccio scendere il pannello", ma "all'utente serve vedere il contesto sotto mentre lavora?". Se sì, il contenuto galleggia a lato; se no, si centra e blocca. Trascinare il pattern mobile pari pari significa portarsi dietro un vincolo che sul web non c'è più.
 
-## Ma io pensavo di tenerlo dal basso anche su web, per coerenza col mobile
+## L'obiezione ricorrente
+
+**Ma io pensavo di tenerlo dal basso anche su web, per coerenza col mobile**
 
 La coerenza sta nel comportamento (stessa azione, stesso contenuto), non nel contenitore. Un pannello a tutta larghezza che sale dal basso su un monitor da 1440px produce righe illeggibili, due fasce morte ai lati e spreca l'unica risorsa che il desktop regala: la larghezza orizzontale.
 
@@ -46,6 +51,12 @@ La coerenza sta nel comportamento (stessa azione, stesso contenuto), non nel con
 - Drawer per una conferma secca (troppo pesante per un sì/no).
 - Dialog bloccante per filtri che vorresti applicare guardando la lista.
 
-:::tip[In una riga]
-Sheet dal basso su mobile: a lato se serve il contesto, al centro se no, ancorato se era un menu. Mai dal basso su web.
-:::
+## Casi di confine
+
+A distinguere un pannello che blocca da uno che convive non è la forma ma **l'overlay di sfondo**: se c'è, il pannello è bloccante, se manca convive col contenuto. Esiste anche un terzo caso che la regola sopra non copre: il pannello **persistente**, quello che non si chiude mai del tutto e si trascina su e giù (le app con mappa lo usano per la lista dei risultati). Sul web quello non diventa un drawer temporaneo: diventa un pannello laterale fisso, parte del layout.
+
+Il confine con il dialog è sfumato di suo. Un dialog allineato in basso, usato su mobile perché più comodo da raggiungere con una mano, di fatto è un pannello dal basso con funzione di dialog. Non è un errore di classificazione: le due categorie si sovrappongono, e conta cosa fa, non come lo chiami.
+
+## Principio collegato
+
+Questa regola applica il principio [Quanto interrompe](../../principi/quanto-interrompe/).

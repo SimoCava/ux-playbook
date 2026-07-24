@@ -2,11 +2,14 @@
 title: "La ricerca"
 sidebar:
   label: "Ricerca"
-  order: 14
+  order: 15
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Ricerca a schermo intero" to="Inline, palette o pagina" />
 
@@ -37,7 +40,9 @@ Su mobile la ricerca prende tutto lo schermo perché non c'è spazio per tenerla
   </Card>
 </CardGrid>
 
-## Ma io pensavo che una barra inline andasse bene per tutto
+## L'obiezione ricorrente
+
+**Ma io pensavo che una barra inline andasse bene per tutto**
 
 Va bene finché cercare è secondario. Se l'utente cerca-e-comanda serve la palette; se cercare è l'attività, serve una pagina con filtri.
 
@@ -59,6 +64,12 @@ Va bene finché cercare è secondario. Se l'utente cerca-e-comanda serve la pale
 
 - Ricerca centrale del prodotto nascosta in una minuscola barra inline.
 
-:::tip[In una riga]
-Inline se è accessoria, palette (Cmd/Ctrl + K) se cerchi e comandi, pagina se cercare è il lavoro.
-:::
+## Casi di confine
+
+La ricerca non è una sola cosa: esistono tre livelli e vanno tenuti distinti anche visivamente. C'è la ricerca **globale**, che cerca in tutto il prodotto; quella **di pagina**, che cerca in ciò che stai guardando; e quella **di componente**, che filtra dentro una singola tabella o lista. Un prodotto può averle tutte e tre insieme, e il problema nasce quando si somigliano troppo: l'utente non sa dove sta cercando.
+
+La palette di comandi non è una barra di ricerca più bella: **contiene** una ricerca, ma il suo scopo è raggiungere qualsiasi funzione dell'applicazione senza passare dai menu. Se cerca solo contenuti, è una barra di ricerca con una scorciatoia da tastiera.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

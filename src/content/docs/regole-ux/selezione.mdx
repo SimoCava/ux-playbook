@@ -1,12 +1,15 @@
 ---
 title: "Dropdown, radio o segmented"
 sidebar:
-  label: "Dropdown, radio o segmented"
+  label: "Far scegliere tra opzioni"
   order: 5
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="principio" fonte="Legge di Hick: il tempo di scelta cresce con le opzioni" />
 
 <Decision items={[
   { label: "Segmented", text: "2-4 opzioni, etichette corte" },
@@ -28,7 +31,9 @@ Scegli in base al numero di opzioni e alla lunghezza delle etichette.
 
 Mostrare le opzioni riduce i click e rende la scelta immediata; nasconderle in un dropdown ha senso solo quando sono troppe per stare a vista. La soglia toglie la discussione "select o radio?".
 
-## Ma io pensavo che il dropdown fosse sempre più ordinato
+## L'obiezione ricorrente
+
+**Ma io pensavo che il dropdown fosse sempre più ordinato**
 
 Ordinato ma più lento: ogni scelta costa un'apertura. Con poche opzioni, mostrarle tutte è più rapido e più chiaro.
 
@@ -51,6 +56,14 @@ Ordinato ma più lento: ogni scelta costa un'apertura. Con poche opzioni, mostra
 - Dropdown per 2 sole opzioni.
 - 20 radio button in un muro verticale.
 
-:::tip[In una riga]
-Poche e corte: segmented. Poche e descritte: radio. Tante: dropdown.
-:::
+## Casi di confine
+
+Quattro controlli si somigliano e rispondono a domande diverse. Il **radio** è sempre circolare e ammette una sola scelta. Il **checkbox** ammette più scelte, e ha uno stato in più che spesso si dimentica, quello intermedio, quando alcune sotto-voci sono selezionate e altre no. Lo **switch** vale solo per stati binari che si applicano subito. Il **controllo segmentato** ammette due o più opzioni ed è riconoscibile da una cosa sola: i segmenti condividono la stessa cornice.
+
+Quest'ultimo punto non è estetica. Elementi chiusi dentro un confine comune si percepiscono come un gruppo unico: è il motivo per cui, se separi i segmenti, l'utente smette di leggerli come alternative della stessa scelta e li legge come voci di navigazione.
+
+Infine, un campo che unisce ricerca e selezione non è un semplice menu a tendina: fa due cose invece di una, e ha senso quando le opzioni sono troppe per essere scorse a mano.
+
+## Principio collegato
+
+Questa regola applica il principio [Una scelta o molte](../../principi/una-scelta-o-molte/).

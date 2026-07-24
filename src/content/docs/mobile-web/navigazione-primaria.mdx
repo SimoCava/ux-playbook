@@ -2,11 +2,14 @@
 title: "La navigazione primaria"
 sidebar:
   label: "Navigazione primaria"
-  order: 4
+  order: 5
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="principio" fonte="Legge di Fitts: distanza e dimensione del bersaglio" />
 
 <Transform from="Bottom tab bar" to="Top-nav o sidebar" />
 
@@ -36,7 +39,9 @@ La barra in basso esiste per il pollice. Sul web il pollice non c'è e lo spazio
   </Card>
 </CardGrid>
 
-## Ma io pensavo di poter tenere la barra in basso anche su web, per coerenza
+## L'obiezione ricorrente
+
+**Ma io pensavo di poter tenere la barra in basso anche su web, per coerenza**
 
 Coerenza di comportamento, non di posizione: le stesse destinazioni, raggiungibili dove il mouse le prende. Una tab bar fissa in fondo a un desktop è lontana, innaturale e spreca lo spazio verticale.
 
@@ -58,6 +63,6 @@ Coerenza di comportamento, non di posizione: le stesse destinazioni, raggiungibi
 - Tab bar fissa in basso su desktop.
 - Sidebar con 3 sole voci su un sito vetrina (sproporzione: meglio top-nav).
 
-:::tip[In una riga]
-In basso col pollice, ai bordi col mouse: top-nav se le voci sono poche, sidebar se sono tante o profonde.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

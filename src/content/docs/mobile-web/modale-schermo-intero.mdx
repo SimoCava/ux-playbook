@@ -2,11 +2,14 @@
 title: "La modale a schermo intero"
 sidebar:
   label: "Modale a schermo intero"
-  order: 3
+  order: 4
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Modale a tutto schermo" to="Solo se immersiva, se no pagina" />
 
@@ -18,7 +21,9 @@ La modale a schermo intero, normale su mobile, sul web è ammessa solo per esper
 
 Su mobile il full-screen è la norma perché lo schermo è piccolo e una cosa alla volta è già tutto. Sul web occupa tutto come una pagina ma senza i suoi vantaggi: niente indirizzo, niente cronologia, niente condivisione del link. Va usato solo quando l'immersione è il punto e l'uscita riporta esattamente dov'eri.
 
-## Ma io pensavo che full-screen fosse solo più spazio per la mia modale
+## L'obiezione ricorrente
+
+**Ma io pensavo che full-screen fosse solo più spazio per la mia modale**
 
 Se ti serve più spazio in modo permanente e navigabile, ti serve una pagina. Il full-screen modal è per il momento, non per il luogo.
 
@@ -39,6 +44,12 @@ Se ti serve più spazio in modo permanente e navigabile, ti serve una pagina. Il
 
 - Pagina di dettaglio travestita da modale full-screen, senza URL e senza back.
 
-:::tip[In una riga]
-Full-screen è un momento immersivo, non una pagina senza indirizzo.
-:::
+## Casi di confine
+
+Il confine con un pannello dal basso molto alto è visivo e netto: il pannello, anche quando arriva quasi in cima, lascia sempre vedere che sotto c'è dell'altro; l'overlay a tutto schermo ha uno sfondo continuo e copre tutto. Se il fondo resta percepibile, l'utente sa di poter tornare indietro. Se sparisce, non lo sa più.
+
+Da segnalare come pratica da non imitare: rendere poco visibile il pulsante di chiusura di un overlay a tutto schermo, cosa comune nelle schermate di abbonamento. Funziona nel senso che trattiene l'utente, ma è manipolazione, non design.
+
+## Principio collegato
+
+Questa regola applica il principio [Quanto interrompe](../../principi/quanto-interrompe/).

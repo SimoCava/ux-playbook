@@ -2,11 +2,14 @@
 title: "Modale, drawer o pagina"
 sidebar:
   label: "Modale, drawer o pagina"
-  order: 2
+  order: 3
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Sheet o full-screen" to="Drawer, modale o pagina" />
 
@@ -36,7 +39,9 @@ I tre contenitori non sono intercambiabili per gusto. Il drawer coesiste col con
   </Card>
 </CardGrid>
 
-## Ma io pensavo che la modale evitasse un cambio di pagina brusco
+## L'obiezione ricorrente
+
+**Ma io pensavo che la modale evitasse un cambio di pagina brusco**
 
 Il brusco è tenere un form lungo dentro un rettangolo che scrolla. Una pagina dedicata dà spazio, URL, back del browser e respiro. La modale non è più leggera: è più costrittiva.
 
@@ -60,6 +65,12 @@ Il brusco è tenere un form lungo dentro un rettangolo che scrolla. Una pagina d
 - Wizard multi-step incastrato in una modale.
 - Drawer per una conferma secca sì/no.
 
-:::tip[In una riga]
-Serve il contesto sotto: drawer. Un'azione: modale. Un lavoro: pagina.
-:::
+## Casi di confine
+
+Il drawer non è una sidebar. Il drawer è nascosto e appare **sopra** il contenuto, di solito richiamato da un'icona; la sidebar è sempre visibile e sta **sullo stesso livello** del contenuto. Se un pannello laterale è permanente, non stai scegliendo un drawer: stai scegliendo il layout.
+
+Due varianti che confondono: il drawer **staccato dal bordo**, che galleggia con un margine attorno, e quello che invece di coprire il contenuto lo **spinge di lato**. Il secondo si comporta come layout anche se nasce come overlay, quindi va valutato come tale: se spinge, sta ridisegnando la pagina.
+
+## Principio collegato
+
+Questa regola applica il principio [Quanto interrompe](../../principi/quanto-interrompe/).

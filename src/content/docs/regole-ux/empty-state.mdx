@@ -1,12 +1,15 @@
 ---
 title: "Empty state"
 sidebar:
-  label: "Empty state"
+  label: "Quando non c'è niente"
   order: 9
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Primo utilizzo", text: "Illustrazione + una CTA per iniziare", tone: "ok" },
@@ -22,7 +25,9 @@ Non tutti i vuoti sono uguali. Primo utilizzo (nessun dato ancora): illustrazion
 
 Il primo utilizzo va accolto e guidato; un filtro a vuoto va risolto; un errore va comunicato. Trattarli allo stesso modo confonde la causa del vuoto e lascia l'utente senza la prossima mossa.
 
-## Ma io pensavo che ogni empty state volesse un'illustrazione simpatica
+## L'obiezione ricorrente
+
+**Ma io pensavo che ogni empty state volesse un'illustrazione simpatica**
 
 L'illustrazione ci sta all'onboarding, dove inviti ad agire. Su "nessun risultato" è rumore: lì serve dire perché è vuoto e come rimediare.
 
@@ -44,6 +49,14 @@ L'illustrazione ci sta all'onboarding, dove inviti ad agire. Su "nessun risultat
 - Grande illustrazione allegra su un "nessun risultato" di ricerca.
 - Vuoto muto, senza spiegazione né azione.
 
-:::tip[In una riga]
-Primo utilizzo: invito con CTA. Ricerca vuota: spiega e resetta. Errore: riprova.
-:::
+## Casi di confine
+
+I vuoti non sono tre ma quattro, e il quarto viene quasi sempre dimenticato: oltre al primo utilizzo, alla ricerca senza risultati e all'errore, esiste il vuoto **da traguardo raggiunto**, quello di una lista di cose da fare che è stata completata. Lì il vuoto è una buona notizia e va trattato come tale, senza spingere l'utente a riempirlo.
+
+Un caso ibrido: la schermata di assenza di connessione è insieme un vuoto e un errore. Va trattata come errore, perché ha una causa e una possibile azione di recupero, non come un vuoto da riempire.
+
+E non tutti i vuoti vogliono un pulsante: quando lo stato vuoto è il risultato desiderato, aggiungere una chiamata all'azione è rumore.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

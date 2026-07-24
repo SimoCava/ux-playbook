@@ -1,12 +1,15 @@
 ---
 title: "Hamburger: quando sì"
 sidebar:
-  label: "Hamburger"
+  label: "Nascondere la navigazione"
   order: 11
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Sì", text: "Mobile; oppure nav secondaria o sidebar collassabile su desktop", tone: "ok" },
@@ -21,7 +24,9 @@ Su desktop l'hamburger è vietato per la navigazione primaria: quella è sempre 
 
 Nascondere la navigazione dietro un click, quando c'è tutto lo spazio per mostrarla, riduce scoperta e uso. Su mobile l'hamburger risolve un vincolo di spazio reale; su desktop lo spazio c'è, quindi il vincolo non c'è.
 
-## Ma io pensavo che l'hamburger tenesse l'interfaccia più pulita
+## L'obiezione ricorrente
+
+**Ma io pensavo che l'hamburger tenesse l'interfaccia più pulita**
 
 "Pulito" a costo di nascondere le funzioni non è un vantaggio: è attrito. Su desktop la nav primaria si mostra.
 
@@ -42,6 +47,10 @@ Nascondere la navigazione dietro un click, quando c'è tutto lo spazio per mostr
 
 - Sito desktop con tutta la navigazione dietro un'icona hamburger.
 
-:::tip[In una riga]
-Su desktop la navigazione primaria si vede. L'hamburger è un ripiego mobile.
-:::
+## Casi di confine
+
+Esiste una via di mezzo tra la navigazione nascosta e la sidebar piena: una barra laterale stretta, sempre visibile, con le sole icone delle sezioni principali. Non richiede di aprire nulla, quindi non paga il costo della scoperta, e occupa una frazione dello spazio. È spesso la risposta giusta quando qualcuno propone l'icona a tre righe su desktop per "guadagnare spazio".
+
+## Principio collegato
+
+Questa regola applica il principio [Sembra cliccabile](../../principi/sembra-cliccabile/).

@@ -1,0 +1,45 @@
+---
+title: "Quanto dura"
+sidebar:
+  label: "Quanto dura"
+  order: 2
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+
+<Decision items={[
+  { label: "Lo chiude il tempo", text: "Messaggio temporaneo: sparisce da solo" },
+  { label: "Lo chiude la soluzione", text: "Resta finché la condizione che lo ha generato esiste" },
+  { label: "Lo chiude l'utente", text: "Richiede una decisione esplicita per andarsene" },
+]} />
+
+## Il criterio
+
+Un messaggio si progetta decidendo **chi ha il potere di farlo sparire**. Non è un dettaglio di implementazione: è ciò che dice all'utente se quel messaggio riguarda un istante appena passato o una situazione ancora in corso.
+
+La domanda che risolve i casi dubbi: quando questo messaggio non avrà più senso? Se la risposta è "tra qualche secondo", lo chiude il tempo. Se è "quando il problema sarà risolto", deve restare. Se è "quando l'utente avrà scelto", deve pretendere una scelta.
+
+## Perché funziona così
+
+C'è un vincolo di attesa che vale per tutta l'interfaccia: quando l'interazione resta sotto la soglia dei quattrocento millisecondi circa, l'utente e il sistema procedono senza aspettarsi a vicenda, e la produttività resta alta. Questa soglia governa anche i messaggi, perché la percezione del tempo è la stessa: sotto quella soglia non serve dire nulla, oltre serve dichiarare che sta succedendo qualcosa, e più l'attesa cresce più bisogna dire quanto manca invece di limitarsi a girare.
+
+Sul lato opposto vale il principio contrario: un messaggio che porta con sé un'azione non può avere una scadenza. Se sparisce mentre l'utente si sta muovendo per usarlo, l'azione era finta.
+
+## Casi di confine
+
+Lo stesso identico testo cambia natura in base a dove vive: sopra il contenuto è un messaggio temporaneo, dentro il contenuto è una condizione persistente. La posizione non è estetica, dichiara la durata.
+
+Tre indicatori di attesa si confondono spesso. Lo **scheletro** anticipa la forma di quello che arriva. L'**indicatore generico** dice solo che qualcosa sta accadendo. L'**indicatore di avanzamento** mostra un progresso misurabile e spesso si può interrompere. Sono tre livelli di informazione crescente: usare il più povero quando potresti usare il più ricco è uno spreco.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che tutti i messaggi dovessero sparire da soli, per non dare fastidio**
+
+Sparire da soli è giusto solo per ciò che è già concluso. Una condizione ancora in corso che scompare lascia l'utente convinto che sia risolta, ed è peggio del fastidio: è un'informazione falsa.
+
+## Regole che lo applicano
+
+- [Toast](../../mobile-web/toast/)
+- [Salvare il lavoro](../../regole-ux/save-vs-autosave/)
+- [Comunicare un errore](../../regole-ux/errori/)
+- [Mostrare l'attesa](../../regole-ux/skeleton-spinner-loader/)

@@ -2,11 +2,14 @@
 title: "Il date picker"
 sidebar:
   label: "Date picker"
-  order: 11
+  order: 12
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="principio" fonte="Legge di Jakob: rispettare il controllo nativo" />
 
 <Transform from="Selettore nativo" to="Calendario a griglia" />
 
@@ -18,7 +21,9 @@ Su mobile usa il picker nativo del sistema (la ruota / il selettore dell'OS). Su
 
 Il picker nativo mobile è ottimizzato per il tocco e va rispettato: l'utente lo conosce già. Sul web la griglia è più veloce col mouse e permette il confronto visivo tra date, cosa impossibile su una ruota. Sono due strumenti diversi perché due input diversi, non lo stesso componente ridimensionato.
 
-## Ma io pensavo di riusare lo stesso componente su entrambe le piattaforme
+## L'obiezione ricorrente
+
+**Ma io pensavo di riusare lo stesso componente su entrambe le piattaforme**
 
 La ruota su desktop è lenta col mouse e rende dolorosi gli intervalli. La griglia su mobile occupa troppo e combatte col tocco. Ogni piattaforma il suo strumento.
 
@@ -40,6 +45,10 @@ La ruota su desktop è lenta col mouse e rende dolorosi gli intervalli. La grigl
 - Ruota in stile mobile forzata sul desktop.
 - Selezione di un intervallo fatta con due dropdown separati.
 
-:::tip[In una riga]
-Selettore nativo su mobile, griglia (due mesi per gli intervalli) sul web.
-:::
+## Casi di confine
+
+Non tutte le viste a calendario sono selettori di data. Se le date servono a organizzare contenuti, come in un diario o in un'agenda che mostra cosa è successo, quella è una vista di navigazione e non un campo di form. La discriminante è se il risultato dell'interazione finisce dentro un dato da salvare.
+
+## Principio collegato
+
+Questa regola applica il principio [Una scelta o molte](../../principi/una-scelta-o-molte/).

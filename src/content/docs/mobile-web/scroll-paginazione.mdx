@@ -2,11 +2,14 @@
 title: "Scroll infinito o paginazione"
 sidebar:
   label: "Scroll o paginazione"
-  order: 15
+  order: 16
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Scroll infinito" to="Paginazione dove si confronta" />
 
@@ -35,7 +38,9 @@ Lo scroll infinito toglie il senso di posizione e rende irraggiungibile il foote
   </Card>
 </CardGrid>
 
-## Ma io pensavo che lo scroll infinito fosse sempre più fluido
+## L'obiezione ricorrente
+
+**Ma io pensavo che lo scroll infinito fosse sempre più fluido**
 
 Fluido per sfogliare, pessimo per ritrovare: "torna al 47° risultato" è impossibile in scroll infinito e banale con le pagine. E il footer, con le info importanti, diventa una chimera.
 
@@ -56,6 +61,12 @@ Fluido per sfogliare, pessimo per ritrovare: "torna al 47° risultato" è imposs
 
 - Tabella gestionale in scroll infinito: footer irraggiungibile, nessun ritorno.
 
-:::tip[In una riga]
-Sfogliare: scroll. Ritrovare, confrontare, gestire: paginazione. L'inversione tra mobile e web è normale.
-:::
+## Casi di confine
+
+L'impaginazione a numeri e i puntini di scorrimento non sono la stessa famiglia. I numeri di pagina servono a **ritrovare** una posizione precisa in un elenco lungo; i puntini indicano **quanti** elementi sequenziali stai sfogliando e a che punto sei, e reggono bene solo con pochi elementi.
+
+Un dettaglio pratico spesso ignorato: lo scorrimento continuo rende difficile raggiungere tutto ciò che sta in fondo alla pagina. Se il piè di pagina contiene informazioni che servono davvero, lo scorrimento infinito le sta di fatto nascondendo.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

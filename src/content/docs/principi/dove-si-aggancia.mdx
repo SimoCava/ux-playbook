@@ -1,0 +1,47 @@
+---
+title: "Dove si aggancia"
+sidebar:
+  label: "Dove si aggancia"
+  order: 3
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+
+<Decision items={[
+  { label: "Al comando", text: "Riguarda solo quel controllo" },
+  { label: "All'elemento", text: "Riguarda l'oggetto su cui hai agito" },
+  { label: "A un bordo", text: "Riguarda il contesto e ci convive" },
+  { label: "Al centro", text: "Riguarda tutto e ti ferma" },
+]} />
+
+## Il criterio
+
+Il punto da cui un pannello nasce **dichiara di cosa parla**, prima ancora che l'utente ne legga il contenuto. Non scegliere l'ancoraggio per estetica: scegli il pannello in base a cosa deve riguardare, e l'ancoraggio verrà di conseguenza.
+
+La domanda che risolve i casi dubbi: questo contenuto riguarda il pulsante che ho premuto, l'elemento su cui stavo lavorando, tutta la schermata, o l'intera applicazione?
+
+## Perché funziona così
+
+La provenienza è un'informazione spaziale, e le informazioni spaziali si elaborano più in fretta del testo. Un pannello che esce da un bordo si legge come un'aggiunta a ciò che stai guardando; uno che compare al centro si legge come una sospensione; uno agganciato a un pulsante si legge come una precisazione su quel pulsante.
+
+Se l'ancoraggio contraddice il contenuto, l'utente si costruisce l'aspettativa sbagliata prima di leggere, e poi deve correggerla. Quel mezzo secondo di correzione è ciò che rende un'interfaccia "confusa" senza che si riesca a dire perché.
+
+## Casi di confine
+
+Un pannello che tocca tre lati dello schermo si legge come estensione del contesto; uno che non ne tocca nessuno si legge come interruzione. È il motivo per cui un pannello alto quasi quanto lo schermo resta comunque meno drastico di un riquadro centrato più piccolo: se il fondo resta percepibile, l'utente sa che c'è una via di ritorno.
+
+Sul lato: un pannello che **copre** il contenuto è un'interruzione temporanea, uno che lo **affianca** allo stesso livello è parte del layout. Esiste anche la variante che spinge il contenuto di lato invece di coprirlo, e quella va valutata come layout, perché sta ridisegnando la pagina.
+
+Infine, due menu che sembrano identici possono avere origini diverse: quello che nasce da un pulsante parla di quel pulsante, quello che nasce dall'elemento su cui hai agito parla di quell'elemento. Cambia il punto di origine, cambia l'oggetto del discorso.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che la posizione di un pannello fosse una questione di stile**
+
+È una questione di significato. Puoi cambiare colori, raggi e ombre quanto vuoi senza toccare il messaggio; ma spostare un pannello dal bordo al centro cambia ciò che l'utente crede di poter ancora toccare, e quindi cambia il comportamento, non l'aspetto.
+
+## Regole che lo applicano
+
+- [Tasto destro](../../mobile-web/tasto-destro/)
+- [Submit](../../mobile-web/submit/)
+- [Cosa resta fermo](../../regole-ux/sticky/)

@@ -1,12 +1,15 @@
 ---
 title: "FAB: quando sì"
 sidebar:
-  label: "FAB"
+  label: "L'azione principale"
   order: 12
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="principio" fonte="Legge di Fitts: raggiungibilità e area del pollice" />
 
 <Decision items={[
   { label: "Sì", text: "Mobile: azione primaria raggiungibile col pollice", tone: "ok" },
@@ -21,7 +24,9 @@ Il FAB fluttuante non sopravvive sul web: l'azione primaria diventa un bottone e
 
 Il FAB serve il pollice nell'angolo del mobile. Sul web, col mouse ogni punto è raggiungibile, e un bottone fluttuante che copre il contenuto è solo un ostacolo. L'evidenza dell'azione primaria si ottiene con un bottone ben posizionato, non con un cerchio che galleggia.
 
-## Ma io pensavo che il FAB rendesse l'azione primaria più evidente
+## L'obiezione ricorrente
+
+**Ma io pensavo che il FAB rendesse l'azione primaria più evidente**
 
 Su desktop l'evidenza si ottiene con un bottone primario nella toolbar, non con un cerchio sopra le cose.
 
@@ -41,6 +46,14 @@ Su desktop l'evidenza si ottiene con un bottone primario nella toolbar, non con 
 
 - FAB fluttuante su desktop che copre l'angolo del contenuto.
 
-:::tip[In una riga]
-Il FAB è per il pollice. Sul web l'azione primaria va nella toolbar.
-:::
+## Casi di confine
+
+L'azione principale in evidenza è sempre **costruttiva**: crea, aggiungi, componi. Non ci si mette mai un'azione distruttiva, perché è il bersaglio più facile da colpire per errore proprio in virtù della sua posizione.
+
+Sulla posizione esiste un'alternativa poco considerata: l'angolo in basso a destra favorisce i destrimani, mentre la posizione centrale è raggiungibile con entrambe le mani. Se il prodotto ha un pubblico ampio, la seconda è più inclusiva.
+
+Sta emergendo anche la variante a due azioni affiancate, usata per esempio per alternare vista a lista e vista a mappa. Regge se le due azioni sono davvero di pari importanza; se una è secondaria, non va lì.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

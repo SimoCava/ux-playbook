@@ -1,0 +1,51 @@
+---
+title: "Naviga o esegue"
+sidebar:
+  label: "Naviga o esegue"
+  order: 5
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+
+<Decision items={[
+  { label: "Naviga", text: "Porta altrove: cambia dove sei, si può tornare indietro" },
+  { label: "Esegue", text: "Fa qualcosa qui: cambia lo stato, resti dove sei" },
+]} />
+
+## Il criterio
+
+Portare l'utente altrove e fare qualcosa al posto suo sono due cose diverse, e devono avere aspetti diversi. Un elemento che naviga deve avere un indirizzo, poter essere aperto in una nuova scheda e permettere di tornare indietro. Un elemento che esegue cambia lo stato e lascia l'utente dov'è.
+
+La domanda che risolve i casi dubbi: dopo aver premuto, l'utente si trova in un posto nuovo o nello stesso posto con qualcosa di cambiato?
+
+## Perché funziona così
+
+Gli utenti passano la maggior parte del tempo su prodotti che non sono il tuo, e arrivano con aspettative già formate altrove. Quando qualcosa somiglia a un collegamento si aspettano di poterlo aprire in una nuova scheda, copiare l'indirizzo, tornare indietro; quando somiglia a un pulsante si aspettano che agisca subito. Rompere questa corrispondenza costa più di quanto qualsiasi originalità possa restituire.
+
+C'è anche una ragione strutturale: se un passaggio importante del prodotto non ha un indirizzo, non è condivisibile, non è recuperabile dopo un ricaricamento e non sopravvive al tasto indietro del browser. Nascondere una navigazione dentro un'azione significa buttare via tutto questo.
+
+## Casi di confine
+
+Un riquadro di contenuto e un riquadro di selezione si somigliano molto. Il primo, se lo tocchi, ti porta a vedere qualcosa di più; il secondo cambia soltanto il proprio stato di selezione ed è, di fatto, un controllo di scelta con un'aria diversa. Se toccarlo non porta da nessuna parte, non è un contenuto navigabile.
+
+Schede e caroselli hanno la stessa ambiguità: le schede cambiano vista dentro la stessa pagina, il carosello scorre elementi omogenei. Se ogni passaggio mostra una sezione diversa del prodotto, non stai sfogliando, stai navigando.
+
+Ultimo caso: l'azione principale in evidenza deve essere sempre costruttiva. Se in quella posizione ci metti qualcosa che distrugge, hai reso il bersaglio più facile da colpire l'errore più costoso.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che l'importante fosse che, premendo, succeda la cosa giusta**
+
+La cosa giusta comprende anche cosa l'utente può fare **prima** di premere: aprire in una scheda nuova, copiare l'indirizzo, capire se sta per spostarsi o per modificare qualcosa. Un'azione mascherata da collegamento toglie tutte queste possibilità senza dirlo.
+
+## Regole che lo applicano
+
+- [Cosa esiste dove](../../mobile-web/cosa-esiste-dove/)
+- [Navigazione primaria](../../mobile-web/navigazione-primaria/)
+- [Tasto indietro](../../mobile-web/tasto-indietro/)
+- [Ricerca](../../mobile-web/ricerca/)
+- [Scroll o paginazione](../../mobile-web/scroll-paginazione/)
+- [Caroselli e page control](../../mobile-web/caroselli-page-control/)
+- [L'azione principale](../../regole-ux/fab/)
+- [Mostrare molti elementi](../../regole-ux/card-o-tabella/)
+- [Quando non c'è niente](../../regole-ux/empty-state/)

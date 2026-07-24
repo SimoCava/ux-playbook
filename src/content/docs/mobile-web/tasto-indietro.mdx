@@ -2,11 +2,14 @@
 title: "Il tasto indietro di sistema"
 sidebar:
   label: "Tasto indietro"
-  order: 5
+  order: 6
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Back di sistema" to="Breadcrumb, back in-app, URL" />
 
@@ -18,7 +21,9 @@ Non affidarti mai al tasto o gesto "indietro" di sistema del mobile. Sul web l'o
 
 Il back di iOS e Android non ha un equivalente universale sul web. Se il ritorno dipende solo da quello, sul desktop l'utente resta intrappolato: non c'è un gesto di sistema, e il back del browser funziona bene solo se ogni stato ha un URL. Dentro modali, wizard o SPA mal fatte, il back del browser fa uscire dall'intero flusso e perde i dati.
 
-## Ma io pensavo bastasse il tasto indietro del browser
+## L'obiezione ricorrente
+
+**Ma io pensavo bastasse il tasto indietro del browser**
 
 Funziona solo se ogni stato è indirizzabile. Un wizard che vive dentro una modale senza URL, al primo back del browser, salta fuori tutto. Serve un ritorno gestito dall'app, non ereditato dal browser.
 
@@ -40,6 +45,6 @@ Funziona solo se ogni stato è indirizzabile. Un wizard che vive dentro una moda
 - Flusso profondo senza breadcrumb né back in-app.
 - Back del browser che fa saltare fuori da un wizard perdendo i dati.
 
-:::tip[In una riga]
-Sul web il ritorno lo dà l'app: breadcrumb, back in-app, URL. Mai il gesto di sistema.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

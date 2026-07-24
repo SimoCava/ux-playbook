@@ -1,0 +1,79 @@
+---
+interface Props {
+  kind: 'norma' | 'dato' | 'principio' | 'convenzione';
+  fonte?: string;
+}
+const { kind, fonte } = Astro.props;
+
+const LABELS = {
+  norma: 'Norma',
+  dato: 'Dato',
+  principio: 'Principio',
+  convenzione: 'Convenzione',
+} as const;
+
+const DESCR = {
+  norma: 'Prescritto da uno standard verificabile',
+  dato: 'Misurato da ricerca con numeri pubblicati',
+  principio: 'Modello cognitivo validato sperimentalmente',
+  convenzione: 'Consenso professionale diffuso, non misurato',
+} as const;
+---
+
+<div class={`vh-evidence vh-evidence--${kind}`}>
+  <span class="vh-evidence__badge">{LABELS[kind]}</span>
+  <span class="vh-evidence__descr">
+    {DESCR[kind]}{fonte ? ' · ' : ''}{fonte && <em>{fonte}</em>}
+  </span>
+</div>
+
+<style>
+  .vh-evidence {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 1.75rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--border);
+    border-left-width: 3px;
+    border-radius: var(--radius, 0.6rem);
+    background: var(--code-background);
+  }
+  .vh-evidence__badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    white-space: nowrap;
+  }
+  .vh-evidence__descr {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+  }
+  .vh-evidence--norma {
+    border-left-color: var(--vh-ok);
+  }
+  .vh-evidence--norma .vh-evidence__badge {
+    background: var(--vh-ok);
+    color: var(--background);
+  }
+  .vh-evidence--dato {
+    border-left-color: var(--primary);
+  }
+  .vh-evidence--principio {
+    border-left-color: var(--primary);
+  }
+  .vh-evidence--convenzione {
+    border-left-color: var(--muted-foreground);
+  }
+  .vh-evidence--convenzione .vh-evidence__badge {
+    background: var(--muted-foreground);
+    color: var(--background);
+  }
+</style>

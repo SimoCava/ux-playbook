@@ -1,12 +1,15 @@
 ---
 title: "Overlay: sovrapposizione e chiusura"
 sidebar:
-  label: "Overlay: sovrapposizione e chiusura"
+  label: "Sovrapporre e chiudere"
   order: 7
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Decision from '@/components/Decision.astro';
 import { Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Decision items={[
   { label: "Mai impilare", text: "Una modale non ne apre un'altra: cambia il contenuto", tone: "bad" },
@@ -28,7 +31,9 @@ Vietato impilare modali: una modale non ne apre mai un'altra. Se serve un second
 
 Le modali impilate accumulano backdrop, si rubano il focus e rendono ambiguo cosa chiude ESC o il click esterno: l'utente perde il "dove sono". E la chiusura accidentale è la prima causa di lavoro perso: più l'azione è impegnativa o irreversibile, più chiudere deve richiedere intenzione esplicita.
 
-## Ma io pensavo che il click sul backdrop dovesse sempre chiudere
+## L'obiezione ricorrente
+
+**Ma io pensavo che il click sul backdrop dovesse sempre chiudere**
 
 Solo quando la chiusura non ha conseguenze. Con un form compilato o un'azione critica in corso, il backdrop non chiude, o chiede conferma.
 
@@ -50,6 +55,6 @@ Solo quando la chiusura non ha conseguenze. Con un form compilato o un'azione cr
 - Due backdrop sovrapposti, modale su modale.
 - Form lungo che sparisce con un click distratto fuori.
 
-:::tip[In una riga]
-Mai una modale sopra una modale. Più l'azione pesa, più chiudere deve costare intenzione.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Quanto interrompe](../../principi/quanto-interrompe/).

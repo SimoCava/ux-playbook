@@ -1,0 +1,51 @@
+---
+title: "Sembra cliccabile"
+sidebar:
+  label: "Sembra cliccabile"
+  order: 4
+---
+import Figure from '@/components/Figure.astro';
+import Decision from '@/components/Decision.astro';
+
+<Decision items={[
+  { label: "Informa", text: "Comunica uno stato o una categoria: non si tocca" },
+  { label: "Si può toccare", text: "Ha una forma che lo dichiara e un'area sufficiente", tone: "ok" },
+  { label: "Si scopre solo agendo", text: "Nascosto dietro un gesto: serve un'alternativa visibile", tone: "bad" },
+]} />
+
+## Il criterio
+
+L'aspetto di un elemento deve dichiarare se è interattivo, sempre e senza gesti preliminari. Due conseguenze operative: ciò che è cliccabile deve sembrarlo, e ciò che non lo è non deve sembrarlo.
+
+La domanda che risolve i casi dubbi: un utente che guarda questa schermata per la prima volta, senza muovere il mouse e senza toccare niente, sa che questa cosa si può usare?
+
+## Perché funziona così
+
+Ci sono due vincoli, e nessuno dei due è negoziabile.
+
+Il primo è la **dimensione del bersaglio**. Il tempo necessario a raggiungere un elemento dipende dalla sua distanza e dalla sua dimensione: più è piccolo e lontano, più costa. È il motivo per cui gli standard fissano un minimo: le linee guida di accessibilità del web chiedono almeno quarantaquattro pixel per quarantaquattro nel criterio più stretto, e almeno ventiquattro per ventiquattro oppure una spaziatura equivalente nel criterio di livello intermedio. Le piattaforme concordano: quarantaquattro punti su iOS, quarantotto unità su Android.
+
+Il secondo è la **scopribilità**. Un'azione che esiste solo al passaggio del mouse non esiste per chi usa il tocco, per chi naviga da tastiera e per chi semplicemente non ci passa sopra. Il passaggio del mouse può mettere in risalto qualcosa che c'è già; non può essere l'unico modo per sapere che c'è.
+
+## Casi di confine
+
+Alcuni elementi somigliano molto e stanno su lati opposti di questa linea. Un'etichetta che comunica una categoria e un piccolo elemento selezionabile possono essere identici a colpo d'occhio: la differenza è che il secondo si tocca e il primo no. Se un elemento informativo ha la stessa forma di uno interattivo, l'utente proverà a toccarlo e non succederà nulla, che è il modo più economico per far sembrare rotto un prodotto.
+
+Attenzione anche alla gerarchia dei pulsanti. Scendendo di livello, dal principale al solo testo senza contorno, si arriva a una forma che è facile non riconoscere come pulsante: va usata per le azioni davvero secondarie, mai per quelle che l'utente deve trovare.
+
+Infine, la dimensione visibile non coincide con l'area toccabile: un'icona piccola può rispettare i minimi se il suo margine interno è incluso nell'area attiva. È la soluzione corretta per interfacce dense.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che mostrare i comandi solo al passaggio del mouse tenesse l'interfaccia pulita**
+
+Pulita per chi ha già imparato dove sono, inutilizzabile per tutti gli altri. E su un portatile con schermo tattile quel passaggio del mouse non avviene mai. La pulizia si ottiene con comandi discreti ma presenti, non con comandi assenti.
+
+## Regole che lo applicano
+
+- [Azioni in swipe](../../mobile-web/azioni-swipe/)
+- [Azioni in hover](../../mobile-web/azioni-in-hover/)
+- [Tooltip](../../mobile-web/tooltip/)
+- [Pull-to-refresh](../../mobile-web/pull-to-refresh/)
+- [Upload e drag-and-drop](../../mobile-web/upload-drag-and-drop/)
+- [Nascondere la navigazione](../../regole-ux/hamburger/)

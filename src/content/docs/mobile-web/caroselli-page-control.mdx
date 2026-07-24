@@ -1,0 +1,60 @@
+---
+title: "Caroselli e page control"
+sidebar:
+  label: "Caroselli e page control"
+  order: 18
+---
+import Evidence from '@/components/Evidence.astro';
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
+
+<Transform from="Trascinamento laterale e puntini" to="Frecce visibili più puntini" />
+
+## Regola
+
+Un contenuto che su mobile si sfoglia trascinando, sul web ha bisogno di **controlli visibili**. I puntini restano come indicatore di posizione, ma non bastano più: vanno affiancati da frecce sempre presenti, non solo al passaggio del mouse. Sotto i tre elementi, non serve sfogliare: mostrali tutti.
+
+## Perché
+
+I puntini sono un indicatore, non un comando: dicono a che punto sei, non come procedere. Su mobile questo basta perché il gesto di trascinamento è già noto e i puntini confermano soltanto che c'è dell'altro. Sul web il gesto equivalente non esiste, quindi senza frecce l'utente vede che ci sono altri elementi ma non ha modo ovvio di raggiungerli. Nasconderle nell'hover peggiora le cose, perché chi non passa sopra non sa nemmeno che si può andare avanti.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che le frecce sempre visibili sporcassero il carosello**
+
+Un carosello esiste per essere percorso. Se i controlli sono nascosti, gran parte degli utenti vede solo il primo elemento e il resto del contenuto non viene mai raggiunto: hai speso spazio per mostrare una cosa sola. Le frecce si possono rendere discrete, non facoltative.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Frecce laterali sempre visibili, con i puntini a indicare la posizione.
+- L'elemento successivo parzialmente visibile al bordo, così si capisce che il contenuto continua.
+- Quattro elementi che entrano tutti nella larghezza disponibile: nessun carosello, mostrati affiancati.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Solo puntini, nessuna freccia, su desktop.
+- Frecce che compaiono unicamente al passaggio del mouse.
+- Scorrimento automatico che riparte mentre l'utente sta leggendo.
+
+## Casi di confine
+
+I puntini di scorrimento non vanno confusi con l'indicatore di avanzamento di un processo: i primi organizzano contenuti che stai sfogliando, il secondo racconta quanto manca alla fine di un'operazione. Somigliano e dicono cose opposte, perché uno è navigazione e l'altro è attesa.
+
+Nemmeno le schede sono la stessa cosa: le schede fanno cambiare **vista**, il carosello fa scorrere elementi dello **stesso tipo**. Se ogni passaggio mostra una sezione diversa del prodotto, non stai facendo un carosello.
+
+Caso a parte le barre animate che avanzano da sole, quelle delle storie: lì il tempo scorre senza l'utente, quindi servono sempre un modo per fermarlo e uno per tornare indietro.
+
+## Principio collegato
+
+Questa regola applica il principio [Naviga o esegue](../../principi/naviga-o-esegue/).

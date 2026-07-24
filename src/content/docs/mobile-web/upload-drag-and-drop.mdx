@@ -1,0 +1,52 @@
+---
+title: "Upload e drag-and-drop"
+sidebar:
+  label: "Upload e drag-and-drop"
+  order: 17
+---
+import Evidence from '@/components/Evidence.astro';
+import Figure from '@/components/Figure.astro';
+import Transform from '@/components/Transform.astro';
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
+
+<Transform from="Pulsante che apre il selettore" to="Pulsante più area di trascinamento" />
+
+## Regola
+
+Sul web il caricamento di un file mantiene **sempre** il pulsante che apre il selettore di sistema, e ci aggiunge sopra un'area di trascinamento. Il trascinamento è un acceleratore, mai l'unico modo per caricare qualcosa.
+
+## Perché
+
+È uno dei pochi casi in cui il web aggiunge invece di togliere: trascinare un file dal desktop dentro il browser è un gesto che su mobile non esiste. Ma è anche un gesto **invisibile**, che non lascia traccia se non lo si annuncia, e inaccessibile da tastiera. Per questo l'area di trascinamento contiene sempre anche il pulsante: chi non sa di poter trascinare, e chi non può farlo, deve avere comunque una strada.
+
+## L'obiezione ricorrente
+
+**Ma io pensavo che l'area di trascinamento rendesse il pulsante superfluo**
+
+Il trascinamento richiede di avere già il file visibile in un'altra finestra, un puntatore e la capacità di tenerlo premuto mentre si muove. Basta una di queste condizioni a mancare e senza pulsante il caricamento è impossibile. Il pulsante non è ridondanza: è la strada garantita.
+
+## Esempi corretti
+
+<Badge text="Corretto" variant="success" size="small" />
+
+<Figure kind="ok">Wireframe da inserire (Claude Design)</Figure>
+
+- Area tratteggiata con dentro il testo "trascina qui" e un pulsante per scegliere dal computer.
+- L'area cambia aspetto mentre un file ci passa sopra, così il bersaglio è dichiarato prima del rilascio.
+- Formati e peso massimo scritti vicino all'area, non in un messaggio d'errore dopo il tentativo.
+
+## Anti-pattern
+
+<Badge text="Errato" variant="danger" size="small" />
+
+<Figure kind="bad">Wireframe da inserire (Claude Design)</Figure>
+
+- Solo area di trascinamento, nessun pulsante.
+- Nessun riscontro visivo durante il trascinamento, quindi l'utente non sa dove sta rilasciando.
+- Vincoli sui formati comunicati soltanto a caricamento fallito.
+
+## Principio collegato
+
+Questa regola applica il principio [Sembra cliccabile](../../principi/sembra-cliccabile/).

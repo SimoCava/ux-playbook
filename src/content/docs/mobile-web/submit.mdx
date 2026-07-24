@@ -2,11 +2,14 @@
 title: "Il pulsante di submit"
 sidebar:
   label: "Submit"
-  order: 12
+  order: 13
 ---
+import Evidence from '@/components/Evidence.astro';
 import Figure from '@/components/Figure.astro';
 import Transform from '@/components/Transform.astro';
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+<Evidence kind="convenzione" />
 
 <Transform from="Submit sticky in basso" to="In linea o footer del contenitore" />
 
@@ -21,7 +24,9 @@ Il bottone di submit fissato in basso (sticky) su mobile, sul web diventa:
 
 Su mobile lo sticky serve perché il pollice e lo scroll lungo lo richiedono. Sul web, se il form sta a schermo, l'azione in linea basta; se scrolla, si àncora al fondo del contenitore, non del monitor. Un bottone incollato al fondo della finestra su desktop copre contenuto e appare fuori contesto.
 
-## Ma io pensavo di tenerlo sticky sulla viewport anche sul web
+## L'obiezione ricorrente
+
+**Ma io pensavo di tenerlo sticky sulla viewport anche sul web**
 
 Un bottone incollato al fondo dello schermo su desktop, a tutta larghezza, sembra una barra di sistema e ruba spazio. Si àncora al form o al suo contenitore, non alla finestra del browser.
 
@@ -42,6 +47,6 @@ Un bottone incollato al fondo dello schermo su desktop, a tutta larghezza, sembr
 
 - Barra di submit incollata al fondo della viewport desktop, a tutta larghezza.
 
-:::tip[In una riga]
-Sul web il submit sta in fondo al form o al contenitore, non incollato al monitor.
-:::
+## Principio collegato
+
+Questa regola applica il principio [Dove si aggancia](../../principi/dove-si-aggancia/).
